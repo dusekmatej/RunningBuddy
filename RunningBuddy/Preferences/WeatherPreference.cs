@@ -5,7 +5,7 @@ namespace RunningBuddy.Preferences;
 
 public class WeatherPreference : IUserPreference
 {
-    private static ApiService _apiService;
+    private static ApiService? _apiService;
     private ApiList? _data;
     
     public WeatherPreference(ApiService apiService)
@@ -21,20 +21,33 @@ public class WeatherPreference : IUserPreference
         
         return returnValue;
     }
-    public bool? IsSatisfied()
+    public bool? IsSatisfied(Athlete athlete)
     {
-        bool isThunderstormSuitable = false;
-        bool isDrizzleSuitable = true;
-        bool isRainSuitable = true;
-        bool isSnowSuitable = false;
-        
-        
-        if (GetId() > 200 && isThunderstormSuitable)
+        if ((GetId() <= 200 && GetId() > 300) && athlete.IsStormSuitable)
+        {
             return true;
-        else if (GetId() > 300 && isDrizzleSuitable)
+        }
+        else if ((GetId() <= 300 && GetId() > 400) && athlete.IsDrizzleSuitable)
+        {
             return true;
-
-
+        }
+        else if (GetId() <= 500 && GetId() > 600 && athlete.IsRainSuitable)
+        {
+            return true;
+        }
+        else if (GetId() <= 600 && GetId() > 700 && athlete.IsSnowSuitable)
+        {
+            return true;
+        }
+        else if (GetId() == 800)
+        {
+            return true;
+        }
+        else if (GetId() > 800)
+        {
+            return false;
+        }
+        
         return null;
     }
 }

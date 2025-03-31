@@ -2,7 +2,7 @@
 
 public class TemperaturePreference : IUserPreference
 {
-    public bool? IsSatisfied()
+    public bool? IsSatisfied(Athlete athlete)
     {
         return null;
     }

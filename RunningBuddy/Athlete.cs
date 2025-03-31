@@ -1,12 +1,25 @@
-﻿namespace RunningBuddy;
+﻿using RunningBuddy.Preferences;
+
+namespace RunningBuddy;
 
 public class Athlete
 {
-    public int minTemp { get; set; }
-    public int maxTemp { get; set; }
+    public string athleteName { get; set; }
     
-    public bool isStormSuitable { get; set; } 
-    public bool isDrizzleSuitable { get; set; } 
-    public bool isRainSuitable { get; set; } 
-    public bool isSnowSuitable { get; set; } 
+    public WeatherPreference WeatherPref { get; set; }
+    public TemperaturePreference TempPref { get; set; }
+    public TimePreference TimePref { get; set; }
+
+    public int MinTemp { get; set; }
+    public int MaxTemp { get; set; }
+    
+    public bool IsStormSuitable { get; set; } 
+    public bool IsDrizzleSuitable { get; set; } 
+    public bool IsRainSuitable { get; set; } 
+    public bool IsSnowSuitable { get; set; }
+
+    public Athlete(string name)
+    {
+        athleteName = name;
+    }
 }

@@ -2,5 +2,5 @@
 
 public interface IUserPreference
 {
-    public bool? IsSatisfied();
+    public bool? IsSatisfied(Athlete athlete);
 }
