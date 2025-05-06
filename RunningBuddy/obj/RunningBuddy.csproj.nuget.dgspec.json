@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\source\\c#\\Kyberna\\RunningBuddy\\RunningBuddy\\RunningBuddy.csproj": {}
+    "C:\\Users\\matdu\\source\\Kyberna\\PRG\\C#\\repos\\runningbuddy\\RunningBuddy\\RunningBuddy.csproj": {}
   },
   "projects": {
-    "D:\\source\\c#\\Kyberna\\RunningBuddy\\RunningBuddy\\RunningBuddy.csproj": {
+    "C:\\Users\\matdu\\source\\Kyberna\\PRG\\C#\\repos\\runningbuddy\\RunningBuddy\\RunningBuddy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\source\\c#\\Kyberna\\RunningBuddy\\RunningBuddy\\RunningBuddy.csproj",
+        "projectUniqueName": "C:\\Users\\matdu\\source\\Kyberna\\PRG\\C#\\repos\\runningbuddy\\RunningBuddy\\RunningBuddy.csproj",
         "projectName": "RunningBuddy",
-        "projectPath": "D:\\source\\c#\\Kyberna\\RunningBuddy\\RunningBuddy\\RunningBuddy.csproj",
+        "projectPath": "C:\\Users\\matdu\\source\\Kyberna\\PRG\\C#\\repos\\runningbuddy\\RunningBuddy\\RunningBuddy.csproj",
         "packagesPath": "C:\\Users\\matdu\\.nuget\\packages\\",
-        "outputPath": "D:\\source\\c#\\Kyberna\\RunningBuddy\\RunningBuddy\\obj\\",
+        "outputPath": "C:\\Users\\matdu\\source\\Kyberna\\PRG\\C#\\repos\\runningbuddy\\RunningBuddy\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matdu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,8 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net9.0": {

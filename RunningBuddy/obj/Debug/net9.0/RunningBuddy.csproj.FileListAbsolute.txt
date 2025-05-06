@@ -26,3 +26,17 @@ D:\source\c#\Kyberna\RunningBuddy\RunningBuddy\obj\Debug\net9.0\refint\RunningBu
 D:\source\c#\Kyberna\RunningBuddy\RunningBuddy\obj\Debug\net9.0\RunningBuddy.pdb
 D:\source\c#\Kyberna\RunningBuddy\RunningBuddy\obj\Debug\net9.0\RunningBuddy.genruntimeconfig.cache
 D:\source\c#\Kyberna\RunningBuddy\RunningBuddy\obj\Debug\net9.0\ref\RunningBuddy.dll
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\bin\Debug\net9.0\RunningBuddy.exe
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\bin\Debug\net9.0\RunningBuddy.deps.json
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\bin\Debug\net9.0\RunningBuddy.runtimeconfig.json
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\bin\Debug\net9.0\RunningBuddy.dll
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\bin\Debug\net9.0\RunningBuddy.pdb
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\obj\Debug\net9.0\RunningBuddy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\obj\Debug\net9.0\RunningBuddy.AssemblyInfoInputs.cache
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\obj\Debug\net9.0\RunningBuddy.AssemblyInfo.cs
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\obj\Debug\net9.0\RunningBuddy.csproj.CoreCompileInputs.cache
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\obj\Debug\net9.0\RunningBuddy.dll
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\obj\Debug\net9.0\refint\RunningBuddy.dll
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\obj\Debug\net9.0\RunningBuddy.pdb
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\obj\Debug\net9.0\RunningBuddy.genruntimeconfig.cache
+C:\Users\matdu\source\Kyberna\PRG\C#\repos\runningbuddy\RunningBuddy\obj\Debug\net9.0\ref\RunningBuddy.dll

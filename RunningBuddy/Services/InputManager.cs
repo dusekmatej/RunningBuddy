@@ -1,106 +1,101 @@
-﻿namespace RunningBuddy.Services;
+﻿using System.Net;
+
+namespace RunningBuddy.Services;
 
 public class InputManager
 {
-    public void MainScreen()
+    public void MainScreen(Athlete athlete0, Athlete athlete1)
     {
-        bool athletesEntered = true; // Just for testing purposes
+        bool athletesEntered = true;
+        
         Console.WriteLine("----- Welcome to Running Buddy -----");
         Console.WriteLine("1) Enter athlete one");
         Console.WriteLine("2) Enter athlete two");
         if (athletesEntered)
             Console.WriteLine("3) Calculate times!");
         Console.WriteLine("4) Exit");
+
+        if (!int.TryParse(Console.ReadLine(), out int userInput))
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid input!");
+            Console.ResetColor();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            
+            return;
+        }
+        
+        switch (userInput)
+        {
+            case 1:
+                EnterAthlete(athlete0);
+                break;
+            case 2:
+                EnterAthlete(athlete1);
+                break;
+        }
     }
 
     public void EnterAthlete(Athlete athlete)
     {
-        // Try to make better souloution for this long code, not readable
-        
-        // Possibilities harder to implement
-        // possibility of making a list of responses then do for/foreach loop
-        // Possibility of making a list of questions and then cycling through them
-        
-        Console.Clear();
-        Console.WriteLine($"Entering information for athlete {athlete.athleteName}");
-        
-        Console.WriteLine("Are you comfortable with running in stormy weather? (yes/no)");
-        string? stormyWeather = Console.ReadLine();
-
-        if (stormyWeather.ToLower() == "yes" || stormyWeather.ToLower() == "y")
+        string[] weatherCondQuestions = new string[]
         {
-            athlete.IsStormSuitable = true;
-
-        }
-        else if (stormyWeather.ToLower() == "no" || stormyWeather.ToLower() == "n")
+            "Are you comfortable with running in stormy weather? (yes/no)",
+            "Are you comfortable with running in drizzle? (yes/no)",
+            "Are you comfortable with running in rain? (yes/no)",
+            "Are you comfortable with running in snow? (yes/no)"
+        };
+        
+        for (int i = weatherCondQuestions.Length - 1; i >= 0; i--)
         {
-            athlete.IsStormSuitable = false;
-        }
-        else
-        {
-            Console.WriteLine("Wrong input, please try again.");
-            Console.ReadKey();
-            return;
+            Console.WriteLine(i);
+            WeatherConditions(weatherCondQuestions, i, athlete);
         }
 
-        Console.WriteLine("Are you comfortable with running in drizzle? (yes/no)");
-        string? drizzleWeather = Console.ReadLine();
-        
-        if (drizzleWeather.ToLower() == "yes" || drizzleWeather.ToLower() == "y")
-        {
-            athlete.IsStormSuitable = true;
-
-        }
-        else if (drizzleWeather.ToLower() == "no" || drizzleWeather.ToLower() == "n")
-        {
-            athlete.IsStormSuitable = false;
-        }
-        else
-        {
-            Console.WriteLine("Wrong input, please try again.");
-            Console.ReadKey();
-            return;
-        }
-
-        Console.WriteLine("Are you comfortable with running in rain? (yes/no)");
-        string? rainWeather = Console.ReadLine();
-        
-        if (rainWeather.ToLower() == "yes" || rainWeather.ToLower() == "y")
-        {
-            athlete.IsRainSuitable = true;
-        }
-        else if (rainWeather.ToLower() == "no" || rainWeather.ToLower() == "n")
-        {
-            athlete.IsRainSuitable = false;
-        }
-        else
-        {
-            Console.WriteLine("Wrong input, please try again.");
-            Console.ReadKey();
-            return;
-        }
-        
-        Console.WriteLine("Are you comfortable with running in snow? (yes/no)");
-        string? snowWeather = Console.ReadLine();
-        
-        if (snowWeather.ToLower() == "yes" || snowWeather.ToLower() == "y")
-        {
-            athlete.IsStormSuitable = true;
-        }
-        else if (snowWeather.ToLower() == "no" || snowWeather.ToLower() == "n")
-        {
-            athlete.IsStormSuitable = false;
-        }
-        else
-        {
-            Console.WriteLine("Wrong input, please try again.");
-            Console.ReadKey();
-            return;
-        }
+        if (athlete.athleteName == "LastAthlete")
+            athlete.EnteredWeatherPref = true;
     }
-
-    public void WriteAthletes(int athleteNumber)
+    
+    private void WeatherConditions(string[] conditionsArray, int inputCount, Athlete athlete)
     {
-        Console.WriteLine();
+        Console.WriteLine(conditionsArray[inputCount]);
+        string input = Console.ReadLine().ToLower();
+        bool isComfortable;
+
+        if (input == "yes" || input == "y")
+        {
+            isComfortable = true;
+        }
+        else if (input == "no" || input == "n")
+        {
+            isComfortable = false;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid input!");
+            Console.ResetColor();
+            Console.ReadKey(true);
+            return;
+        }
+
+        switch (inputCount)
+        {
+            case 0:
+                athlete.IsStormSuitable = isComfortable;
+                break;
+            case 1:
+                athlete.IsDrizzleSuitable = isComfortable;
+                break;
+            case 2:
+                athlete.IsRainSuitable = isComfortable;
+                break;
+            case 3:
+                athlete.IsSnowSuitable = isComfortable;
+                break;
+            default:
+                return;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using RunningBuddy.Services;
+﻿using System.Dynamic;
+using RunningBuddy.Services;
 using RunningBuddy.Models;
 
 namespace RunningBuddy.Preferences;
@@ -21,32 +22,24 @@ public class WeatherPreference : IUserPreference
         
         return returnValue;
     }
+    
     public bool? IsSatisfied(Athlete athlete)
     {
-        if ((GetId() <= 200 && GetId() > 300) && athlete.IsStormSuitable)
-        {
+        int weatherId = GetId();
+        
+        // 204 > 200 && 204 < 300 &&& IsStormSuitable
+        if ((weatherId >= 200 && weatherId < 300) && athlete.IsStormSuitable)
             return true;
-        }
-        else if ((GetId() <= 300 && GetId() > 400) && athlete.IsDrizzleSuitable)
-        {
+        else if ((weatherId <= 300 && weatherId < 400) && athlete.IsDrizzleSuitable)
             return true;
-        }
-        else if (GetId() <= 500 && GetId() > 600 && athlete.IsRainSuitable)
-        {
+        else if (weatherId <= 500 && weatherId < 600 && athlete.IsRainSuitable)
             return true;
-        }
-        else if (GetId() <= 600 && GetId() > 700 && athlete.IsSnowSuitable)
-        {
+        else if (weatherId <= 600 && weatherId > 700 && athlete.IsSnowSuitable)
             return true;
-        }
-        else if (GetId() == 800)
-        {
+        else if (weatherId == 800)
             return true;
-        }
-        else if (GetId() > 800)
-        {
+        else if (weatherId > 800)
             return false;
-        }
         
         return null;
     }
