@@ -27,6 +27,7 @@ public class Program
         
         // Get api response & check if null
         ApiList? apiList = apiService.GetData("Borth");
+        apiList = apiService.GetData("Borth");
         
         if (apiList == null)
         {

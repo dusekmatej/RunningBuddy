@@ -11,6 +11,12 @@ public class ApiService
     private const string KEY = "cf2ba23f25fa8adc08c450fedfe8cbde";
     
     private readonly HttpClient _httpClient;
+    private ApiList? _storedData;
+    private DateTime _timeStamp;
+    private readonly TimeSpan _Duration = TimeSpan.FromMinutes(10);
+    
+    private string _rawResponse;
+    
     public ApiService()
     {
      _httpClient = new HttpClient();
@@ -19,26 +25,21 @@ public class ApiService
 
     public ApiList? GetData(string city)
     {
-        try
+        
+        string requestUrl = $"{URL}?q={city}&units=metric&appid={KEY}";
+        
+        if (_storedData != null && DateTime.Now - _timeStamp < _Duration)
         {
-            string requestUrl = $"{URL}?q={city}&units=metric&appid={KEY}";
-            
-            HttpResponseMessage response = _httpClient.GetAsync(requestUrl).GetAwaiter().GetResult();
-            
-            string rawResponse = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-            // Console.WriteLine($"Raw Response: {rawResponse}");
-
-            return System.Text.Json.JsonSerializer.Deserialize<ApiList>(rawResponse);
-
-            //return _httpClient
-            //    .GetFromJsonAsync<ApiList>($"{URL}?q={city}&units=metric&appid={KEY}")
-            //    .GetAwaiter().GetResult();
+            return _storedData;
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
+        
+        HttpResponseMessage responseMessage = _httpClient.GetAsync(requestUrl).GetAwaiter().GetResult();
+        _rawResponse = responseMessage.Content
+            .ReadAsStringAsync().GetAwaiter().GetResult();
 
-            return null;
-        }
+        _timeStamp = DateTime.Now;
+        _storedData = System.Text.Json.JsonSerializer.Deserialize<ApiList>(_rawResponse);
+
+        return _storedData;
     }
 }
