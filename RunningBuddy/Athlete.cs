@@ -14,9 +14,9 @@ public class Athlete
     public int MaxTemp { get; set; }
     
     public bool EnteredWeatherPref { get; set; }
-    
     public bool IsStormSuitable { get; set; } 
     public bool IsDrizzleSuitable { get; set; } 
     public bool IsRainSuitable { get; set; } 
     public bool IsSnowSuitable { get; set; }
+    public bool? IsWeatherSuitable { get; set; }
 }

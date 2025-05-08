@@ -8,7 +8,6 @@ namespace RunningBuddy;
 
 public class Program
 {
-    // For this commit needed: AthletePreferences, working WeatherPref class just recognition required,
     
     public static void Main(String[] args)
     {
@@ -26,8 +25,8 @@ public class Program
         athlete1.athleteName = "LastAthlete";
         
         // Get api response & check if null
-        ApiList? apiList = apiService.GetData("Borth");
-        apiList = apiService.GetData("Borth");
+        ApiList? apiList = apiService.GetData("Hradec Kralove");
+        apiList = apiService.GetData("Hradec Kralove");
         
         if (apiList == null)
         {
@@ -41,12 +40,15 @@ public class Program
         //inputManager.MainScreen();
 
         var weatherPref = new WeatherPreference(apiService);
-        
-        bool? isWeatherPrefSuitable = weatherPref.IsSatisfied(athlete0);
-        Console.WriteLine(isWeatherPrefSuitable);
+
+        athlete0.IsWeatherSuitable = weatherPref.IsSatisfied(athlete0);
+        athlete1.IsWeatherSuitable = weatherPref.IsSatisfied(athlete1);
  
         if (consoleLogs)
-        { 
+        {
+            Debug.WriteLine($"Athlete zero suitability: {athlete0.IsWeatherSuitable}");;
+            Debug.WriteLine($"Athlete one suitability: {athlete1.IsWeatherSuitable}");;
+            
             Debug.WriteLine($"Athlete0 is storm suitable {athlete0.IsStormSuitable}");
             Debug.WriteLine($"Athlete0 is rain suitable {athlete0.IsRainSuitable}");
             Debug.WriteLine($"Athlete0 is drizzle suitable {athlete0.IsDrizzleSuitable}");

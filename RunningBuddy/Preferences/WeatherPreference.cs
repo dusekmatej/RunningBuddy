@@ -1,31 +1,22 @@
-﻿using System.Dynamic;
+﻿using System.Diagnostics;
 using RunningBuddy.Services;
 using RunningBuddy.Models;
 
 namespace RunningBuddy.Preferences;
 
-public class WeatherPreference : IUserPreference
+public class WeatherPreference : UserPreference
 {
-    private static ApiService? _apiService;
-    private ApiList? _data;
-    
-    public WeatherPreference(ApiService apiService)
+    public WeatherPreference(ApiService apiService) : base(apiService)
     {
-        _apiService = apiService ?? throw new ArgumentNullException(nameof(apiService));
     }
 
-    public int GetId()
-    {
-        _data = _apiService.GetData("Hradec Kralove");
-        var weather = _data.Weather[0];
-        var returnValue = weather.Id;
-        
-        return returnValue;
-    }
-    
-    public bool? IsSatisfied(Athlete athlete)
+    public override bool? IsSatisfied(Athlete athlete)
     {
         int weatherId = GetId();
+        Debug.WriteLine($"GetID = {GetId()} --------------------------");
+        
+        // Better future implementation make two arrays/lists and cycle through those items not
+        // sure if it is possible just a thought
         
         // 204 > 200 && 204 < 300 &&& IsStormSuitable
         if ((weatherId >= 200 && weatherId < 300) && athlete.IsStormSuitable)
@@ -36,11 +27,11 @@ public class WeatherPreference : IUserPreference
             return true;
         else if (weatherId <= 600 && weatherId > 700 && athlete.IsSnowSuitable)
             return true;
-        else if (weatherId == 800)
+        else if (weatherId == 800 )
             return true;
-        else if (weatherId > 800)
-            return false;
+        else if (weatherId > 800 && weatherId < 900 & athlete.IsSnowSuitable)
+            return true;
         
-        return null;
+        return false;
     }
 }
