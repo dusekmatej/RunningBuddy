@@ -6,7 +6,7 @@ using RunningBuddy.Preferences;
 
 namespace RunningBuddy;
 
-public class Program
+public static class Program
 {
     
     public static void Main(String[] args)
@@ -21,43 +21,28 @@ public class Program
         // Create athletes
         Athlete athlete0 = new Athlete();
         Athlete athlete1 = new Athlete();
-
-        athlete1.athleteName = "LastAthlete";
         
         // Get api response & check if null
         ApiList? apiList = apiService.GetData("Hradec Kralove");
-        apiList = apiService.GetData("Hradec Kralove");
         
         if (apiList == null)
         {
-            Console.WriteLine("Error:");
+            Console.WriteLine("Error: \"ApiList\" is null");
         }
 
-        while (!athlete1.EnteredWeatherPref)
+        while (inputManager.isRunning)
         {
             inputManager.MainScreen(athlete0, athlete1);
         }
-        //inputManager.MainScreen();
+        inputManager.DebugLogs(athlete0, athlete1, consoleLogs);
 
         var weatherPref = new WeatherPreference(apiService);
+        var tempPref = new TemperaturePreference(apiService);
 
-        athlete0.IsWeatherSuitable = weatherPref.IsSatisfied(athlete0);
-        athlete1.IsWeatherSuitable = weatherPref.IsSatisfied(athlete1);
- 
-        if (consoleLogs)
-        {
-            Debug.WriteLine($"Athlete zero suitability: {athlete0.IsWeatherSuitable}");;
-            Debug.WriteLine($"Athlete one suitability: {athlete1.IsWeatherSuitable}");;
-            
-            Debug.WriteLine($"Athlete0 is storm suitable {athlete0.IsStormSuitable}");
-            Debug.WriteLine($"Athlete0 is rain suitable {athlete0.IsRainSuitable}");
-            Debug.WriteLine($"Athlete0 is drizzle suitable {athlete0.IsDrizzleSuitable}");
-            Debug.WriteLine($"Athlete0 is snow suitable {athlete0.IsSnowSuitable}");
-
-            Debug.WriteLine($"Athlete1 is storm suitable {athlete1.IsStormSuitable}");
-            Debug.WriteLine($"Athlete1 is rain suitable {athlete1.IsRainSuitable}");
-            Debug.WriteLine($"Athlete1 is drizzle suitable {athlete1.IsDrizzleSuitable}");
-            Debug.WriteLine($"Athlete1 is snow suitable {athlete1.IsSnowSuitable}");
-        }
+        athlete0.TempPref = tempPref.IsSatisfied(athlete0);
+        athlete1.TempPref = tempPref.IsSatisfied(athlete1);
+        
+        athlete0.WeatherSuitability = weatherPref.IsSatisfied(athlete0);
+        athlete1.WeatherSuitability = weatherPref.IsSatisfied(athlete1);
     }
 }

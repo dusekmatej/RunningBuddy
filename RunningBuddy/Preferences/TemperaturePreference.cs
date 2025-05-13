@@ -1,9 +1,15 @@
-﻿namespace RunningBuddy.Preferences;
+﻿using RunningBuddy.Services;
 
-public class TemperaturePreference : IUserPreference
+namespace RunningBuddy.Preferences;
+
+public class TemperaturePreference(ApiService apiService) : UserPreference(apiService)
 {
-    public bool? IsSatisfied(Athlete athlete)
+    private bool _preferenceSatisfied = false;
+    public override bool IsSatisfied(Athlete athlete)
     {
-        return null;
+        if (GetTemp() > athlete.MinTemp && GetTemp() < athlete.MaxTemp)
+            _preferenceSatisfied = true;
+
+        return _preferenceSatisfied;
     }
 }

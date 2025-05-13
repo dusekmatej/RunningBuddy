@@ -4,13 +4,9 @@ using RunningBuddy.Models;
 
 namespace RunningBuddy.Preferences;
 
-public class WeatherPreference : UserPreference
+public class WeatherPreference(ApiService apiService) : UserPreference(apiService)
 {
-    public WeatherPreference(ApiService apiService) : base(apiService)
-    {
-    }
-
-    public override bool? IsSatisfied(Athlete athlete)
+    public override bool IsSatisfied(Athlete athlete)
     {
         int weatherId = GetId();
         Debug.WriteLine($"GetID = {GetId()} --------------------------");
@@ -19,19 +15,16 @@ public class WeatherPreference : UserPreference
         // sure if it is possible just a thought
         
         // 204 > 200 && 204 < 300 &&& IsStormSuitable
-        if ((weatherId >= 200 && weatherId < 300) && athlete.IsStormSuitable)
-            return true;
-        else if ((weatherId <= 300 && weatherId < 400) && athlete.IsDrizzleSuitable)
-            return true;
-        else if (weatherId <= 500 && weatherId < 600 && athlete.IsRainSuitable)
-            return true;
-        else if (weatherId <= 600 && weatherId > 700 && athlete.IsSnowSuitable)
-            return true;
-        else if (weatherId == 800 )
-            return true;
-        else if (weatherId > 800 && weatherId < 900 & athlete.IsSnowSuitable)
-            return true;
         
-        return false;
+        return weatherId switch
+        {
+            >= 200 and < 300 when athlete.IsStormSuitable => true,
+            >= 300 and < 400 when athlete.IsDrizzleSuitable => true,
+            >= 500 and < 600 when athlete.IsRainSuitable => true,
+            >= 600 and < 700 when athlete.IsSnowSuitable => true,
+            800 => true,
+            > 800 and < 900 when athlete.IsSnowSuitable => true,
+            _ => false
+        };
     }
 }
