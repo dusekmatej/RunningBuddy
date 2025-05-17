@@ -1,10 +1,13 @@
-﻿using RunningBuddy.Preferences;
+﻿using System.Runtime.Serialization;
+using RunningBuddy.Preferences;
 
 namespace RunningBuddy;
 
 public class Athlete
 {
     public string? Id { get; set; }
+
+    public string Name { get; set; } = string.Empty;
     public string? Location { get; set; }
     
     public int MinTemp { get; set; }
@@ -22,6 +25,8 @@ public class Athlete
     
     public bool WeatherSuitability { get; set; }
     public bool TemperatureSuitability { get; set; }
+    
+    public bool TimeSuitability { get; set; }
 
     public Athlete(string id)
     {

@@ -40,4 +40,18 @@ public abstract class UserPreference : IUserPreference
         
         return (int)returnValue;
     }
+
+    protected long GetSunrise(string city)
+    {
+        _data = _apiService.GetData(city);
+        var returnValue = _data.Sys.Sunrise;
+        return returnValue;
+    }
+
+    protected long GetSunset(string city)
+    {
+        _data = _apiService.GetData(city);
+        var returnValue = _data.Sys.Sunset;
+        return returnValue;
+    }
 }

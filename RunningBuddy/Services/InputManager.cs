@@ -19,11 +19,9 @@ public class InputManager
     
     public void MainScreen(Athlete athlete0, Athlete athlete1)
     {
-        bool athletesEntered = true;
-
         Console.WriteLine("----- Welcome to Running Buddy -----");
         Console.WriteLine("1) Enter athletes");
-        if (athletesEntered)
+        if (AppState.AthletesEntered)
             Console.WriteLine("2) Calculate times!");
         Console.WriteLine("3) Exit");
 
@@ -40,6 +38,7 @@ public class InputManager
                 EnterAthlete(athlete0); 
                 Console.WriteLine("----- Entering athlete two -----");
                 EnterAthlete(athlete1); 
+                AppState.AthletesEntered = true;
                 break;
             case 2: Calculate(athlete0, athlete1); break;
             case 3: IsRunning = false; break;
@@ -135,7 +134,7 @@ public class InputManager
 
         athlete.Location = city;
         
-
+        
         if (athlete.Id == "a1")
             AppState.FirstCity = athlete.Location;
         else if (athlete.Id == "a2")
@@ -176,14 +175,39 @@ public class InputManager
 
     private void Calculate(Athlete athlete0, Athlete athlete1)
     {
-        Console.WriteLine("Are both athletes satisfied with the weather?");
+        ApiService? apiService = new ApiService();
+
+        var checkPref = new CheckPreferences();
+        var weatherPref = new WeatherPreference(apiService);
+        var tempPref = new TemperaturePreference(apiService);
+        var timePref = new TimePreference(apiService);
+
         
-        Console.WriteLine("Athlete0 city is: " + athlete0.Location);
-        Console.WriteLine("Athlete1 city is: " + athlete1.Location);
+        
+        if (athlete0.Location != null)
+        {
+            athlete0.WeatherSuitability = weatherPref.IsSatisfied(athlete0, athlete0.Location);
+            athlete0.TemperatureSuitability = tempPref.IsSatisfied(athlete0, athlete0.Location);
+            athlete0.TimeSuitability = timePref.IsSatisfied(athlete0, athlete0.Location);
+        }
+
+        if (athlete1.Location != null)
+        {
+            athlete1.WeatherSuitability = weatherPref.IsSatisfied(athlete1, athlete1.Location);
+            athlete1.TemperatureSuitability = tempPref.IsSatisfied(athlete1, athlete1.Location);        
+            athlete1.TimeSuitability = timePref.IsSatisfied(athlete1, athlete1.Location);
+        }
+        
+        AppState.satisfiedBothAthletes = checkPref.ArePreferencesSatisfied(athlete0, athlete1);
+        
+        Logging.Log("Are the athletes capable of running at this moment: " + AppState.satisfiedBothAthletes);
+        
     }
 
     public void DebugLogs(Athlete athlete0, Athlete athlete1)
     {
+        Logging.Log("Are athletes satisfied at this moment: " + AppState.satisfiedBothAthletes);
+        
         Logging.Log("---------- Athlete one ----------");
         Logging.Log("Weather suitability for athlete one with API data: " + athlete0.WeatherSuitability);
         Logging.Log($"Athlete one temperature preference is {athlete0.TemperatureSuitability}");

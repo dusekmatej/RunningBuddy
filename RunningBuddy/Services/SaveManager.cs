@@ -1,35 +1,38 @@
-﻿namespace RunningBuddy;
+﻿using System.Text.Json;
+using System.IO;
+using RunningBuddy.Services;
+
+namespace RunningBuddy;
 
 public class SaveManager
 {
-    public void DoesExist()
+    public bool DoesExist(string filePath)
     {
-        string pathUser1 = "saveU0.txt";
-        string pathUser2 = "saveU1.txt";
+        if (!File.Exists(filePath))
+        {
+            Logging.Log("File does not exist");
+            return false;
+        }
         
-        if (!File.Exists(pathUser1))
-            CreateFile(pathUser1);
-        else
-            Load(pathUser1);
-        
-        if (!File.Exists(pathUser2))
-            CreateFile(pathUser2);
-        else
-            Load(pathUser2);
+        Logging.Log("File exists");
+        return true;
     }
     
-    public void CreateFile(string fileName)
+    public void Save(Athlete athlete, string filePath)
     {
-        File.WriteAllText(fileName, string.Empty);
-    }
-    
-    public void Save(string fileName)
-    {
-        
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string json = JsonSerializer.Serialize(athlete, options);
+        File.WriteAllText(filePath, json);
     }
 
-    public void Load(string fileName)
+    public Athlete Load(string filePath)
     {
-        string[] lines = File.ReadAllLines(fileName);
+        if (!File.Exists(filePath))
+            throw new FileNotFoundException("File not found");
+        
+        string json = File.ReadAllText(filePath);
+        Athlete deserialized = JsonSerializer.Deserialize<Athlete>(json);
+        Logging.Log($"{deserialized.TemperatureSuitability}");
+        return deserialized;
     }
 }

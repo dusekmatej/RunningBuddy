@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matdu\\source\\Kyberna\\PRG\\C#\\repos\\runningbuddy\\RunningBuddy\\RunningBuddy.csproj",
+      "projectUniqueName": "C:\\Users\\matdu\\RiderProjects\\runningbuddy\\RunningBuddy\\RunningBuddy.csproj",
       "projectName": "RunningBuddy",
-      "projectPath": "C:\\Users\\matdu\\source\\Kyberna\\PRG\\C#\\repos\\runningbuddy\\RunningBuddy\\RunningBuddy.csproj",
+      "projectPath": "C:\\Users\\matdu\\RiderProjects\\runningbuddy\\RunningBuddy\\RunningBuddy.csproj",
       "packagesPath": "C:\\Users\\matdu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matdu\\source\\Kyberna\\PRG\\C#\\repos\\runningbuddy\\RunningBuddy\\obj\\",
+      "outputPath": "C:\\Users\\matdu\\RiderProjects\\runningbuddy\\RunningBuddy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\matdu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,8 +44,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -66,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\matdu\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
