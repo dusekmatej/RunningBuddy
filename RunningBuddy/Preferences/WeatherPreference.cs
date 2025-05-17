@@ -6,25 +6,47 @@ namespace RunningBuddy.Preferences;
 
 public class WeatherPreference(ApiService apiService) : UserPreference(apiService)
 {
-    public override bool IsSatisfied(Athlete athlete)
+    public override bool IsSatisfied(Athlete athlete, string city)
     {
-        int weatherId = GetId();
-        Debug.WriteLine($"GetID = {GetId()} --------------------------");
+        int weatherId = GetId(city);
+        Debug.WriteLine($"GetID = {GetId(city)} -------------------------- {city}");
         
-        // Better future implementation make two arrays/lists and cycle through those items not
-        // sure if it is possible just a thought
-        
-        // 204 > 200 && 204 < 300 &&& IsStormSuitable
-        
-        return weatherId switch
+        switch (weatherId)
         {
-            >= 200 and < 300 when athlete.IsStormSuitable => true,
-            >= 300 and < 400 when athlete.IsDrizzleSuitable => true,
-            >= 500 and < 600 when athlete.IsRainSuitable => true,
-            >= 600 and < 700 when athlete.IsSnowSuitable => true,
-            800 => true,
-            > 800 and < 900 when athlete.IsSnowSuitable => true,
-            _ => false
-        };
+            // Thunderstorm: 200–299
+            case >= 200 and < 300 when athlete.IsStormSuitable:
+                return true;
+
+            // Drizzle: 300–399
+            case >= 300 and < 400 when athlete.IsDrizzleSuitable:
+                return true;
+
+            // Rain: 500–599
+            case >= 500 and < 600 when athlete.IsRainSuitable:
+                return true;
+
+            // Snow: 600–699
+            case >= 600 and < 700 when athlete.IsSnowSuitable:
+                return true;
+
+            // Atmosphere (mist, smoke, fog, etc.): 700–799
+            case >= 700 and < 800 when athlete.IsAtmosphereSuitable:
+                return true;
+
+            // Clear sky
+            case 800 when athlete.IsClearSuitable:
+                return true;
+
+            // Cloudy (few to overcast clouds): 801–804
+            case >= 801 and <= 804 when athlete.IsCloudySuitable:
+                Logging.Log("Cloudy weather case");
+                return true;
+
+            // Extreme weather (tornado, hurricane, etc.): 900–906
+            case >= 900 and <= 906 when athlete.IsExtremeSuitable:
+                return true;
+            
+            default: return false;
+        }
     }
 }

@@ -11,6 +11,9 @@ public static class Program
     
     public static void Main(String[] args)
     {
+        Logging.Entry();
+        Logging.Log("Log writer initialized");
+        
         bool consoleLogs = true;
         
         // Create instances of classes
@@ -19,30 +22,35 @@ public static class Program
         InputManager inputManager = new InputManager();
 
         // Create athletes
-        Athlete athlete0 = new Athlete();
-        Athlete athlete1 = new Athlete();
+        Athlete athlete0 = new Athlete("a1");
+        Athlete athlete1 = new Athlete("a2");
         
-        // Get api response & check if null
-        ApiList? apiList = apiService.GetData("Hradec Kralove");
+        Logging.Log("Instances created");
         
-        if (apiList == null)
-        {
-            Console.WriteLine("Error: \"ApiList\" is null");
-        }
-
-        while (inputManager.isRunning)
+        while (inputManager.IsRunning)
         {
             inputManager.MainScreen(athlete0, athlete1);
         }
-        inputManager.DebugLogs(athlete0, athlete1, consoleLogs);
 
         var weatherPref = new WeatherPreference(apiService);
         var tempPref = new TemperaturePreference(apiService);
 
-        athlete0.TempPref = tempPref.IsSatisfied(athlete0);
-        athlete1.TempPref = tempPref.IsSatisfied(athlete1);
+
+        if (athlete0.Location != null)
+        {
+            athlete0.WeatherSuitability = weatherPref.IsSatisfied(athlete0, athlete0.Location);
+            athlete0.TemperatureSuitability = tempPref.IsSatisfied(athlete0, athlete0.Location);
+        }
+
+        if (athlete1.Location != null)
+        {
+            athlete1.WeatherSuitability = weatherPref.IsSatisfied(athlete1, athlete1.Location);
+            athlete1.TemperatureSuitability = tempPref.IsSatisfied(athlete1, athlete1.Location);        
+        }
+
         
-        athlete0.WeatherSuitability = weatherPref.IsSatisfied(athlete0);
-        athlete1.WeatherSuitability = weatherPref.IsSatisfied(athlete1);
+        
+        
+        inputManager.DebugLogs(athlete0, athlete1);
     }
 }

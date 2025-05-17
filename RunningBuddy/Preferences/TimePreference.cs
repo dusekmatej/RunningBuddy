@@ -2,7 +2,7 @@
 
 public class TimePreference : IUserPreference
 {
-    public bool IsSatisfied(Athlete athlete)
+    public bool IsSatisfied(Athlete athlete, string city)
     {
         return true;
     }
