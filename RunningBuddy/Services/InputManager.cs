@@ -7,6 +7,9 @@ public class InputManager
 {
     private bool _validInput = false;
     public bool IsRunning = true;
+    private bool _showCalculations = false;
+    
+    private int _questionNumber = 0;
     
     private void ErrorMessage(string errorMessage)
     {
@@ -16,40 +19,64 @@ public class InputManager
         Console.ResetColor();
         Console.ReadKey(true);
     }
-    
+
     public void MainScreen(Athlete athlete0, Athlete athlete1)
     {
-        Console.WriteLine("----- Welcome to Running Buddy -----");
-        Console.WriteLine("1) Enter athletes");
-        if (AppState.AthletesEntered)
-            Console.WriteLine("2) Calculate times!");
-        Console.WriteLine("3) Exit");
+        string[] mainMenu = { "Enter athletes", "Calculate", "Exit" };
+        int mainMenuChoice = ShowMenu(mainMenu, "Running Buddy");
 
-        if (!int.TryParse(Console.ReadLine(), out int userInput))
+        switch (mainMenuChoice)
         {
-            ErrorMessage("Invalid input!");
-            return;
-        }
-
-        switch (userInput)
-        {
-            case 1: 
-                Console.WriteLine("----- Entering athlete one -----");
-                EnterAthlete(athlete0); 
-                Console.WriteLine("----- Entering athlete two -----");
-                EnterAthlete(athlete1); 
-                AppState.AthletesEntered = true;
+            case 0:
+                Console.Clear();
+                AthletesSelectionMenu(athlete0, athlete1);
                 break;
-            case 2: Calculate(athlete0, athlete1); break;
-            case 3: IsRunning = false; break;
+            case 1:
+                Calculate(athlete0, athlete1);
+                break;
+            case 2:
+                Console.Clear();
+                Console.WriteLine("Exiting...");
+                IsRunning = false;
+                return;
+        }
+    }
+
+    private void AthletesSelectionMenu(Athlete athlete0, Athlete athlete1)
+    {
+        while (true)
+        {
+            string[] athleteMenu = { "Athlete one", "Athlete two", "Back to Main Menu" };
+
+            int athleteSelection = ShowMenu(athleteMenu, "Select Athlete to enter!");
+
+            switch (athleteSelection)
+            {
+                case 0:
+                    Console.Clear();
+                    EnterAthlete(athlete0);
+                    AppState.Athlete0Entered = true;
+                    break;
+                case 1:
+                    Console.Clear();
+                    EnterAthlete(athlete1);
+                    AppState.Athlete1Entered = true;
+                    break;
+                case 2:
+                    return;
+            }
+
+
         }
     }
 
     private void EnterAthlete(Athlete athlete)
     {
         EnterCity(athlete);
-
-        string[] weatherCondQuestions = new string[]
+        
+        bool entered = false;
+        
+        string[] weatherCondQuestions = 
         {
             "Are you comfortable with running in stormy weather? (yes/no)",                              // 200–299
             "Are you comfortable with running in drizzle? (yes/no)",                                     // 300–399
@@ -61,63 +88,163 @@ public class InputManager
             "Are you comfortable with running in extreme weather like hurricanes or tornadoes? (yes/no)" // 900–906
         };
 
-
-        for (int i = weatherCondQuestions.Length - 1; i >= 0; i--)
+        while (!entered)
         {
-            Logging.Log("Inside in EnterAthlete() .for loop run trough " + i);
-            _validInput = false;
-            while (!_validInput)
+            string[] boolMenu = { "yes", "no" };
+
+            int boolSelected = BoolMenu(boolMenu, weatherCondQuestions, _questionNumber);
+            bool isComfortable = boolSelected == 0;
+            
+
+            switch (_questionNumber)
             {
-                _validInput = WeatherConditions(weatherCondQuestions, i, athlete);
+                case 0: athlete.IsStormSuitable = isComfortable; break;
+                case 1: athlete.IsDrizzleSuitable = isComfortable; break;
+                case 2: athlete.IsRainSuitable = isComfortable; break;
+                case 3: athlete.IsSnowSuitable = isComfortable; break;
+                case 4: athlete.IsAtmosphereSuitable = isComfortable; break;
+                case 5: athlete.IsClearSuitable = isComfortable; break;
+                case 6: athlete.IsCloudySuitable = isComfortable; break;
+                case 7: athlete.IsExtremeSuitable = isComfortable; break;
             }
+            
+            if (_questionNumber < weatherCondQuestions.Length - 1)
+                _questionNumber++;
+            else if (_questionNumber == weatherCondQuestions.Length - 1)
+            {
+                _questionNumber = 0;
+                entered = true;
+            }
+            
         }
 
-        _validInput = false;
-        while (!_validInput)
-        {
-            _validInput = false;
-            _validInput = EnterLowTemp(athlete);
-        }
-
-        _validInput = false;
-        while (!_validInput)
-        {
-            _validInput = false;
-            _validInput = EnterHighTemp(athlete);
-        }
+        EnterLowTemp(athlete);
+        EnterHighTemp(athlete);
     }
-
-    private bool WeatherConditions(string[] conditionsArray, int inputCount, Athlete athlete)
+    
+    private void ShowCalculations()
     {
-        Console.WriteLine(conditionsArray[inputCount]);
-        string input = Console.ReadLine().ToLower();
-        bool isComfortable = false;
-
-        if (input == "yes" || input == "y")
-            isComfortable = true;
-        else if (input == "no" || input == "n")
-            isComfortable = false;
+        if (AppState.satisfiedBothAthletes)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Both athletes are satisfied with the weather conditions.");
+            Console.WriteLine("You can go running with your buddy!");
+            Console.WriteLine("------------------------------------");
+            Console.ResetColor();
+        }
         else
         {
-            Logging.Log("Invalid input for weather condition! " + input);
-            return false;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Conditions currently haven't been met.");
+            Console.WriteLine("Unfortunately you can't go running with your buddy. :(");
+            Console.WriteLine("------------------------------------");
+            Console.ResetColor();
         }
-
-        switch (inputCount)
-        {
-            case 0: athlete.IsStormSuitable = isComfortable; break;
-            case 1: athlete.IsDrizzleSuitable = isComfortable; break;
-            case 2: athlete.IsRainSuitable = isComfortable; break;
-            case 3: athlete.IsSnowSuitable = isComfortable; break;
-            case 4: athlete.IsAtmosphereSuitable = isComfortable; break;
-            case 5: athlete.IsClearSuitable = isComfortable; break;
-            case 6: athlete.IsCloudySuitable = isComfortable; break;
-            case 7: athlete.IsExtremeSuitable = isComfortable; break;
-        }
-
-        return true;
     }
+    
+    private int ShowMenu(string[] options, string title)
+    {
+        int selectedItem = 0;
 
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine($"----- {title} -----");
+
+            for (int i = 0; i < options.Length; i++)
+            {
+                if (i == selectedItem)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("-> ");
+                }
+                else
+                    Console.Write("  ");
+                
+                Console.WriteLine(options[i]);
+                Console.ResetColor();
+            }
+            
+            if (_showCalculations)
+                ShowCalculations();
+
+            ConsoleKey inputKey = Console.ReadKey(true).Key;
+
+            switch (inputKey)
+            {
+                case ConsoleKey.Enter:
+                    return selectedItem;
+                
+                case ConsoleKey.UpArrow:
+                    selectedItem--;
+                    
+                    if (selectedItem < 0)
+                        selectedItem = options.Length - 1;
+                    break;
+                
+                case ConsoleKey.DownArrow:
+                    selectedItem++;
+                    if (selectedItem == options.Length)
+                        selectedItem = 0;
+                    break;
+            }
+            
+        }
+    }
+    
+    private int BoolMenu(string[] boolMenu, string[] questionsArray, int questionIndex)
+    {
+        int selectedBool = 0;
+
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine(questionsArray[questionIndex]);
+            
+            for (int i = 0; i < boolMenu.Length; i++)
+            {
+                if (i == selectedBool)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("-> ");
+                }
+                else
+                {
+                    Console.Write("  ");
+                }
+                
+                Console.WriteLine(boolMenu[i]);
+                Console.ResetColor();
+            }
+            
+            ConsoleKey inputKey = Console.ReadKey(true).Key;
+
+            switch (inputKey)
+            {
+                case ConsoleKey.Enter:
+                    return selectedBool;
+                
+                case ConsoleKey.UpArrow:
+                    selectedBool--;
+
+                    if (selectedBool < 0)
+                        selectedBool = boolMenu.Length - 1;
+
+                    break;
+                
+                case ConsoleKey.DownArrow:
+                    selectedBool++;
+
+                    if (selectedBool > boolMenu.Length - 1)
+                        selectedBool = 0;
+
+                    break;
+            }
+        }
+    }
+    
     private void EnterCity(Athlete athlete)
     {
         Console.WriteLine("Entering athlete ");
@@ -140,6 +267,8 @@ public class InputManager
         else if (athlete.Id == "a2")
             AppState.LastCity = athlete.Location;
     }
+    
+    // TODO: Remake temp inputing to be more user friendly my idea - changing with up/down arrows for increase/decrease
     
     private bool EnterLowTemp(Athlete athlete)
     {
@@ -202,38 +331,8 @@ public class InputManager
         
         Logging.Log("Are the athletes capable of running at this moment: " + AppState.satisfiedBothAthletes);
         
+        _showCalculations = true;
     }
 
-    public void DebugLogs(Athlete athlete0, Athlete athlete1)
-    {
-        Logging.Log("Are athletes satisfied at this moment: " + AppState.satisfiedBothAthletes);
-        
-        Logging.Log("---------- Athlete one ----------");
-        Logging.Log("Weather suitability for athlete one with API data: " + athlete0.WeatherSuitability);
-        Logging.Log($"Athlete one temperature preference is {athlete0.TemperatureSuitability}");
-        Logging.Log(" ");
-        Logging.Log($"Athlete one suitability: {athlete0.WeatherSuitability}");
-        Logging.Log($"Athlete one is storm suitable: {athlete0.IsStormSuitable}");
-        Logging.Log($"Athlete one is drizzle suitable: {athlete0.IsDrizzleSuitable}");
-        Logging.Log($"Athlete one is rain suitable: {athlete0.IsRainSuitable}");
-        Logging.Log($"Athlete one is snow suitable: {athlete0.IsSnowSuitable}");
-        Logging.Log($"Athlete one is atmosphere suitable: {athlete0.IsAtmosphereSuitable}");
-        Logging.Log($"Athlete one is clear sky suitable: {athlete0.IsClearSuitable}");
-        Logging.Log($"Athlete one is cloudy suitable: {athlete0.IsCloudySuitable}");
-        Logging.Log($"Athlete one is extreme weather suitable: {athlete0.IsExtremeSuitable}");
-
-        Logging.Log("---------- Athlete two ----------");
-        Logging.Log("Weather suitability for athlete two with API data: " + athlete1.WeatherSuitability);
-        Logging.Log($"Athlete two temperature preference is {athlete1.TemperatureSuitability}");
-        Logging.Log(" ");
-        Logging.Log($"Athlete two suitability: {athlete1.WeatherSuitability}");
-        Logging.Log($"Athlete two is storm suitable: {athlete1.IsStormSuitable}");
-        Logging.Log($"Athlete two is drizzle suitable: {athlete1.IsDrizzleSuitable}");
-        Logging.Log($"Athlete two is rain suitable: {athlete1.IsRainSuitable}");
-        Logging.Log($"Athlete two is snow suitable: {athlete1.IsSnowSuitable}");
-        Logging.Log($"Athlete two is atmosphere suitable: {athlete1.IsAtmosphereSuitable}");
-        Logging.Log($"Athlete two is clear sky suitable: {athlete1.IsClearSuitable}");
-        Logging.Log($"Athlete two is cloudy suitable: {athlete1.IsCloudySuitable}");
-        Logging.Log($"Athlete two is extreme weather suitable: {athlete1.IsExtremeSuitable}");
-    }
+    
 }

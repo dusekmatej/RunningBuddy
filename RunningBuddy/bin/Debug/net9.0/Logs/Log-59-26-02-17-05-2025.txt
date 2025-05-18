@@ -1,0 +1,66 @@
+59-26-02-17-05-2025 - Log writer initialized
+59-26-02-17-05-2025 - Instances created
+22-27-02-17-05-2025 - City found + Hradec Kralove
+22-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 7
+22-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 6
+23-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 5
+23-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 4
+23-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 3
+23-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 2
+24-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 1
+24-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 0
+29-27-02-17-05-2025 - City found + Dublin
+29-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 7
+29-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 6
+30-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 5
+30-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 4
+30-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 3
+30-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 2
+31-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 1
+31-27-02-17-05-2025 - Inside in EnterAthlete() .for loop run trough 0
+35-27-02-17-05-2025 - Currently inside of GetId() 804 Hradec Kralove
+35-27-02-17-05-2025 - Stored data 0
+35-27-02-17-05-2025 - Currently inside of GetId() 804 Hradec Kralove
+35-27-02-17-05-2025 - Cloudy weather case
+35-27-02-17-05-2025 - Stored data 0
+35-27-02-17-05-2025 - Currently inside of GetTemp() 17 Hradec Kralove
+35-27-02-17-05-2025 - Stored data 0
+35-27-02-17-05-2025 - Currently inside of GetTemp() 17 Hradec Kralove
+36-27-02-17-05-2025 - Currently inside of GetId() 804 Dublin
+36-27-02-17-05-2025 - Stored data 1
+36-27-02-17-05-2025 - Currently inside of GetId() 804 Dublin
+36-27-02-17-05-2025 - Cloudy weather case
+36-27-02-17-05-2025 - Stored data 1
+36-27-02-17-05-2025 - Currently inside of GetTemp() 11 Dublin
+36-27-02-17-05-2025 - Stored data 1
+36-27-02-17-05-2025 - Currently inside of GetTemp() 11 Dublin
+36-27-02-17-05-2025 - Stored data 0
+36-27-02-17-05-2025 - Stored data 0
+36-27-02-17-05-2025 - 17.05.2025 3:07:16
+36-27-02-17-05-2025 - 17.05.2025 18:39:05
+36-27-02-17-05-2025 - ---------- Athlete one ----------
+36-27-02-17-05-2025 - Weather suitability for athlete one with API data: True
+36-27-02-17-05-2025 - Athlete one temperature preference is True
+36-27-02-17-05-2025 -  
+36-27-02-17-05-2025 - Athlete one suitability: True
+36-27-02-17-05-2025 - Athlete one is storm suitable: True
+36-27-02-17-05-2025 - Athlete one is drizzle suitable: True
+36-27-02-17-05-2025 - Athlete one is rain suitable: True
+36-27-02-17-05-2025 - Athlete one is snow suitable: True
+36-27-02-17-05-2025 - Athlete one is atmosphere suitable: True
+36-27-02-17-05-2025 - Athlete one is clear sky suitable: True
+36-27-02-17-05-2025 - Athlete one is cloudy suitable: True
+36-27-02-17-05-2025 - Athlete one is extreme weather suitable: True
+36-27-02-17-05-2025 - ---------- Athlete two ----------
+36-27-02-17-05-2025 - Weather suitability for athlete two with API data: True
+36-27-02-17-05-2025 - Athlete two temperature preference is True
+36-27-02-17-05-2025 -  
+36-27-02-17-05-2025 - Athlete two suitability: True
+36-27-02-17-05-2025 - Athlete two is storm suitable: True
+36-27-02-17-05-2025 - Athlete two is drizzle suitable: True
+36-27-02-17-05-2025 - Athlete two is rain suitable: True
+36-27-02-17-05-2025 - Athlete two is snow suitable: True
+36-27-02-17-05-2025 - Athlete two is atmosphere suitable: True
+36-27-02-17-05-2025 - Athlete two is clear sky suitable: True
+36-27-02-17-05-2025 - Athlete two is cloudy suitable: True
+36-27-02-17-05-2025 - Athlete two is extreme weather suitable: True

@@ -1,0 +1,4 @@
+2025-05-17 17:01:42 - Log writer initialized
+2025-05-17 17:01:42 - File exists
+2025-05-17 17:01:42 - File exists
+2025-05-17 17:01:51 - One of the cities in AppState is null!

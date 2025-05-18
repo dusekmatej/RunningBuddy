@@ -1,0 +1,103 @@
+2025-05-18 01:15:01 - Log writer initialized
+2025-05-18 01:15:01 - Directory found!
+2025-05-18 01:15:01 - File exists!
+2025-05-18 01:15:01 - File exists!
+2025-05-18 01:15:01 - False
+2025-05-18 01:15:01 - False
+2025-05-18 01:15:10 - City found + Hradec Kralove
+2025-05-18 01:15:10 - Inside in EnterAthlete() .for loop run trough 7
+2025-05-18 01:15:11 - Inside in EnterAthlete() .for loop run trough 6
+2025-05-18 01:15:11 - Inside in EnterAthlete() .for loop run trough 5
+2025-05-18 01:15:12 - Inside in EnterAthlete() .for loop run trough 4
+2025-05-18 01:15:12 - Inside in EnterAthlete() .for loop run trough 3
+2025-05-18 01:15:12 - Inside in EnterAthlete() .for loop run trough 2
+2025-05-18 01:15:12 - Inside in EnterAthlete() .for loop run trough 1
+2025-05-18 01:15:12 - Inside in EnterAthlete() .for loop run trough 0
+2025-05-18 01:15:20 - City found + Dublin,IE
+2025-05-18 01:15:20 - Inside in EnterAthlete() .for loop run trough 7
+2025-05-18 01:15:21 - Inside in EnterAthlete() .for loop run trough 6
+2025-05-18 01:15:21 - Inside in EnterAthlete() .for loop run trough 5
+2025-05-18 01:15:22 - Inside in EnterAthlete() .for loop run trough 4
+2025-05-18 01:15:22 - Inside in EnterAthlete() .for loop run trough 3
+2025-05-18 01:15:22 - Inside in EnterAthlete() .for loop run trough 2
+2025-05-18 01:15:22 - Inside in EnterAthlete() .for loop run trough 1
+2025-05-18 01:15:22 - Inside in EnterAthlete() .for loop run trough 0
+2025-05-18 01:15:24 - Invalid low temp input: y
+2025-05-18 01:15:28 - _apiService is null!
+2025-05-18 01:15:28 - Currently inside of GetId() 804 Hradec Kralove
+2025-05-18 01:15:28 - Getting stored data 0
+2025-05-18 01:15:28 - Currently inside of GetId() 804 Hradec Kralove
+2025-05-18 01:15:28 - Cloudy weather case
+2025-05-18 01:15:28 - Getting stored data 0
+2025-05-18 01:15:28 - _data.Main.Temp
+2025-05-18 01:15:28 - Currently inside of GetTemp() 6 Hradec Kralove
+2025-05-18 01:15:28 - Getting stored data 0
+2025-05-18 01:15:28 - _data.Main.Temp
+2025-05-18 01:15:28 - Currently inside of GetTemp() 6 Hradec Kralove
+2025-05-18 01:15:28 - Getting stored data 0
+2025-05-18 01:15:28 - Getting stored data 0
+2025-05-18 01:15:28 - 18.05.2025 3:05:58
+2025-05-18 01:15:28 - 18.05.2025 18:40:29
+2025-05-18 01:15:28 - Currently inside of GetId() 800 Dublin,IE
+2025-05-18 01:15:28 - Getting stored data 1
+2025-05-18 01:15:28 - Currently inside of GetId() 800 Dublin,IE
+2025-05-18 01:15:28 - Getting stored data 1
+2025-05-18 01:15:28 - _data.Main.Temp
+2025-05-18 01:15:28 - Currently inside of GetTemp() 10 Dublin,IE
+2025-05-18 01:15:28 - Getting stored data 1
+2025-05-18 01:15:28 - _data.Main.Temp
+2025-05-18 01:15:28 - Currently inside of GetTemp() 10 Dublin,IE
+2025-05-18 01:15:28 - Getting stored data 1
+2025-05-18 01:15:28 - Getting stored data 1
+2025-05-18 01:15:28 - 18.05.2025 4:20:32
+2025-05-18 01:15:28 - 18.05.2025 20:22:43
+2025-05-18 01:15:28 - Are the athletes capable of running at this moment: False
+2025-05-18 01:15:28 - -----------------------------------------------------
+2025-05-18 01:15:28 - ---------- Athlete one ----------
+2025-05-18 01:15:28 - Athlete ID: a1
+2025-05-18 01:15:28 - ------- Temperature -------
+2025-05-18 01:15:28 - Minimal temperature: 0
+2025-05-18 01:15:28 - Maximal temperature: 100
+2025-05-18 01:15:28 - Athlete one temperature preference is True
+2025-05-18 01:15:28 - ------- Weather -------
+2025-05-18 01:15:28 - Weather suitability for athlete one with API data: True
+2025-05-18 01:15:28 - ------- Separate athlete weather attributes -------
+2025-05-18 01:15:28 - Athlete one suitability: True
+2025-05-18 01:15:28 - Athlete one is storm suitable: True
+2025-05-18 01:15:28 - Athlete one is drizzle suitable: True
+2025-05-18 01:15:28 - Athlete one is rain suitable: True
+2025-05-18 01:15:28 - Athlete one is snow suitable: True
+2025-05-18 01:15:28 - Athlete one is atmosphere suitable: True
+2025-05-18 01:15:28 - Athlete one is clear sky suitable: True
+2025-05-18 01:15:28 - Athlete one is cloudy suitable: True
+2025-05-18 01:15:28 - Athlete one is extreme weather suitable: True
+2025-05-18 01:15:28 - 
+2025-05-18 01:15:28 - ---------- Athlete two ----------
+2025-05-18 01:15:28 - Athlete ID: a2
+2025-05-18 01:15:28 - ------- Temperature -------
+2025-05-18 01:15:28 - Minimal temperature: 0
+2025-05-18 01:15:28 - Maximal temperature: 100
+2025-05-18 01:15:28 - Athlete two temperature preference is True
+2025-05-18 01:15:28 - ------- Weather -------
+2025-05-18 01:15:28 - Weather suitability for athlete two with API data: True
+2025-05-18 01:15:28 - ------- Separate athlete weather attributes -------
+2025-05-18 01:15:28 - Athlete two suitability: True
+2025-05-18 01:15:28 - Athlete two is storm suitable: True
+2025-05-18 01:15:28 - Athlete two is drizzle suitable: True
+2025-05-18 01:15:28 - Athlete two is rain suitable: True
+2025-05-18 01:15:28 - Athlete two is snow suitable: True
+2025-05-18 01:15:28 - Athlete two is atmosphere suitable: True
+2025-05-18 01:15:28 - Athlete two is clear sky suitable: True
+2025-05-18 01:15:28 - Athlete two is cloudy suitable: True
+2025-05-18 01:15:28 - Athlete two is extreme weather suitable: True
+2025-05-18 01:15:28 - ---------- All AppState variables ----------
+2025-05-18 01:15:28 - Are both athletes satisfied with the temperature conditions: True
+2025-05-18 01:15:28 - Are both athletes satisfied with the weather conditions: True
+2025-05-18 01:15:28 - Are both athletes satisfied with the time conditions: False
+2025-05-18 01:15:28 - Are both athletes satisfied overall: False
+2025-05-18 01:15:28 - First city entered by athlete 0: Hradec Kralove
+2025-05-18 01:15:28 - Last city entered by athlete 1: Dublin,IE
+2025-05-18 01:15:28 - Has athlete 0 been entered: True
+2025-05-18 01:15:28 - Has athlete 1 been entered: True
+2025-05-18 01:15:28 - Have both athletes been entered: True
+2025-05-18 01:15:28 - -----------------------------------------------------

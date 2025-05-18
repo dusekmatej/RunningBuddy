@@ -1,0 +1,53 @@
+2025-05-17 17:31:09 - Log writer initialized
+2025-05-17 17:31:09 - True
+2025-05-17 17:31:09 - True
+2025-05-17 17:31:11 - Currently inside of GetId() 501 Hradec Kralove
+2025-05-17 17:31:11 - Stored data 0
+2025-05-17 17:31:11 - Currently inside of GetId() 501 Hradec Kralove
+2025-05-17 17:31:11 - Stored data 0
+2025-05-17 17:31:11 - Currently inside of GetTemp() 13 Hradec Kralove
+2025-05-17 17:31:11 - Stored data 0
+2025-05-17 17:31:11 - Currently inside of GetTemp() 13 Hradec Kralove
+2025-05-17 17:31:11 - Stored data 0
+2025-05-17 17:31:11 - Stored data 0
+2025-05-17 17:31:11 - 17.05.2025 3:07:16
+2025-05-17 17:31:11 - 17.05.2025 18:39:05
+2025-05-17 17:31:11 - Currently inside of GetId() 800 Dublin,IE
+2025-05-17 17:31:11 - Stored data 1
+2025-05-17 17:31:11 - Currently inside of GetId() 800 Dublin,IE
+2025-05-17 17:31:11 - Stored data 1
+2025-05-17 17:31:11 - Currently inside of GetTemp() 15 Dublin,IE
+2025-05-17 17:31:11 - Stored data 1
+2025-05-17 17:31:11 - Currently inside of GetTemp() 15 Dublin,IE
+2025-05-17 17:31:11 - Stored data 1
+2025-05-17 17:31:11 - Stored data 1
+2025-05-17 17:31:11 - 17.05.2025 4:22:03
+2025-05-17 17:31:11 - 17.05.2025 20:21:07
+2025-05-17 17:31:11 - Are the athletes capable of running at this moment: True
+2025-05-17 17:31:27 - Are athletes satisfied at this moment: True
+2025-05-17 17:31:27 - ---------- Athlete one ----------
+2025-05-17 17:31:27 - Weather suitability for athlete one with API data: True
+2025-05-17 17:31:27 - Athlete one temperature preference is True
+2025-05-17 17:31:27 -  
+2025-05-17 17:31:27 - Athlete one suitability: True
+2025-05-17 17:31:27 - Athlete one is storm suitable: True
+2025-05-17 17:31:27 - Athlete one is drizzle suitable: True
+2025-05-17 17:31:27 - Athlete one is rain suitable: True
+2025-05-17 17:31:27 - Athlete one is snow suitable: True
+2025-05-17 17:31:27 - Athlete one is atmosphere suitable: True
+2025-05-17 17:31:27 - Athlete one is clear sky suitable: True
+2025-05-17 17:31:27 - Athlete one is cloudy suitable: True
+2025-05-17 17:31:27 - Athlete one is extreme weather suitable: True
+2025-05-17 17:31:27 - ---------- Athlete two ----------
+2025-05-17 17:31:27 - Weather suitability for athlete two with API data: True
+2025-05-17 17:31:27 - Athlete two temperature preference is True
+2025-05-17 17:31:27 -  
+2025-05-17 17:31:27 - Athlete two suitability: True
+2025-05-17 17:31:27 - Athlete two is storm suitable: True
+2025-05-17 17:31:27 - Athlete two is drizzle suitable: True
+2025-05-17 17:31:27 - Athlete two is rain suitable: True
+2025-05-17 17:31:27 - Athlete two is snow suitable: True
+2025-05-17 17:31:27 - Athlete two is atmosphere suitable: True
+2025-05-17 17:31:27 - Athlete two is clear sky suitable: True
+2025-05-17 17:31:27 - Athlete two is cloudy suitable: True
+2025-05-17 17:31:27 - Athlete two is extreme weather suitable: True

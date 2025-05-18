@@ -26,7 +26,7 @@ public static class Logging
     // Creates the instance of StreamWriter for following logging and the folder for logs
     private static void InstanceCreation()
     {
-        if (!DoesExist())
+        if (!DoesDirectoryExist())
         {
             _directoryInfo = Directory.CreateDirectory(_directoryPath);
         }
@@ -35,18 +35,18 @@ public static class Logging
     }
 
     // Checks if folder exists
-    private static bool DoesExist()
+    private static bool DoesDirectoryExist()
     {
-        if (!File.Exists(_directoryPath))
-            return false;
-        else
+        if (Directory.Exists(_directoryPath))
             return true;
+
+        return false;
     }
 
     // Checks if the folder exists after that creates a log message
     public static void Log(string message)
     {
-        if (DoesExist())
+        if (DoesDirectoryExist())
         {
             _dateTimeToString = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string logMessage = _dateTimeToString + " - " + message;

@@ -1,0 +1,57 @@
+2025-05-18 01:16:03 - Log writer initialized
+2025-05-18 01:16:03 - Directory found!
+2025-05-18 01:16:03 - File exists!
+2025-05-18 01:16:03 - File exists!
+2025-05-18 01:16:03 - True
+2025-05-18 01:16:03 - True
+2025-05-18 01:16:09 - _apiService is null!
+2025-05-18 01:16:09 - Are the athletes capable of running at this moment: False
+2025-05-18 01:16:12 - -----------------------------------------------------
+2025-05-18 01:16:12 - ---------- Athlete one ----------
+2025-05-18 01:16:12 - Athlete ID: a1
+2025-05-18 01:16:12 - ------- Temperature -------
+2025-05-18 01:16:12 - Minimal temperature: 0
+2025-05-18 01:16:12 - Maximal temperature: 0
+2025-05-18 01:16:12 - Athlete one temperature preference is False
+2025-05-18 01:16:12 - ------- Weather -------
+2025-05-18 01:16:12 - Weather suitability for athlete one with API data: False
+2025-05-18 01:16:12 - ------- Separate athlete weather attributes -------
+2025-05-18 01:16:12 - Athlete one suitability: False
+2025-05-18 01:16:12 - Athlete one is storm suitable: False
+2025-05-18 01:16:12 - Athlete one is drizzle suitable: False
+2025-05-18 01:16:12 - Athlete one is rain suitable: False
+2025-05-18 01:16:12 - Athlete one is snow suitable: False
+2025-05-18 01:16:12 - Athlete one is atmosphere suitable: False
+2025-05-18 01:16:12 - Athlete one is clear sky suitable: False
+2025-05-18 01:16:12 - Athlete one is cloudy suitable: False
+2025-05-18 01:16:12 - Athlete one is extreme weather suitable: False
+2025-05-18 01:16:12 - 
+2025-05-18 01:16:12 - ---------- Athlete two ----------
+2025-05-18 01:16:12 - Athlete ID: a2
+2025-05-18 01:16:12 - ------- Temperature -------
+2025-05-18 01:16:12 - Minimal temperature: 0
+2025-05-18 01:16:12 - Maximal temperature: 0
+2025-05-18 01:16:12 - Athlete two temperature preference is False
+2025-05-18 01:16:12 - ------- Weather -------
+2025-05-18 01:16:12 - Weather suitability for athlete two with API data: False
+2025-05-18 01:16:12 - ------- Separate athlete weather attributes -------
+2025-05-18 01:16:12 - Athlete two suitability: False
+2025-05-18 01:16:12 - Athlete two is storm suitable: False
+2025-05-18 01:16:12 - Athlete two is drizzle suitable: False
+2025-05-18 01:16:12 - Athlete two is rain suitable: False
+2025-05-18 01:16:12 - Athlete two is snow suitable: False
+2025-05-18 01:16:12 - Athlete two is atmosphere suitable: False
+2025-05-18 01:16:12 - Athlete two is clear sky suitable: False
+2025-05-18 01:16:12 - Athlete two is cloudy suitable: False
+2025-05-18 01:16:12 - Athlete two is extreme weather suitable: False
+2025-05-18 01:16:12 - ---------- All AppState variables ----------
+2025-05-18 01:16:12 - Are both athletes satisfied with the temperature conditions: False
+2025-05-18 01:16:12 - Are both athletes satisfied with the weather conditions: False
+2025-05-18 01:16:12 - Are both athletes satisfied with the time conditions: False
+2025-05-18 01:16:12 - Are both athletes satisfied overall: False
+2025-05-18 01:16:12 - First city entered by athlete 0: Hradec Kralove
+2025-05-18 01:16:12 - Last city entered by athlete 1: Dublin,IE
+2025-05-18 01:16:12 - Has athlete 0 been entered: False
+2025-05-18 01:16:12 - Has athlete 1 been entered: False
+2025-05-18 01:16:12 - Have both athletes been entered: True
+2025-05-18 01:16:12 - -----------------------------------------------------

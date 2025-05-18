@@ -1,0 +1,71 @@
+18-33-04-17-05-2025 - Log writer initialized
+23-33-04-17-05-2025 - City found + Hradec Kralove
+23-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 7
+24-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 6
+24-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 5
+24-33-04-17-05-2025 - Invalid input for weather condition! a
+25-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 4
+26-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 3
+26-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 2
+27-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 1
+27-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 0
+36-33-04-17-05-2025 - City found + Dublin,IE
+36-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 7
+37-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 6
+37-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 5
+38-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 4
+38-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 3
+38-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 2
+39-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 1
+39-33-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 0
+43-33-04-17-05-2025 - Currently inside of GetId() 804 Hradec Kralove
+43-33-04-17-05-2025 - Stored data 0
+43-33-04-17-05-2025 - Currently inside of GetId() 804 Hradec Kralove
+43-33-04-17-05-2025 - Cloudy weather case
+43-33-04-17-05-2025 - Stored data 0
+43-33-04-17-05-2025 - Currently inside of GetTemp() 12 Hradec Kralove
+43-33-04-17-05-2025 - Stored data 0
+43-33-04-17-05-2025 - Currently inside of GetTemp() 12 Hradec Kralove
+43-33-04-17-05-2025 - Stored data 0
+43-33-04-17-05-2025 - Stored data 0
+43-33-04-17-05-2025 - 17.05.2025 3:07:16
+43-33-04-17-05-2025 - 17.05.2025 18:39:05
+43-33-04-17-05-2025 - Currently inside of GetId() 800 Dublin,IE
+43-33-04-17-05-2025 - Stored data 1
+43-33-04-17-05-2025 - Currently inside of GetId() 800 Dublin,IE
+43-33-04-17-05-2025 - Stored data 1
+43-33-04-17-05-2025 - Currently inside of GetTemp() 15 Dublin,IE
+43-33-04-17-05-2025 - Stored data 1
+43-33-04-17-05-2025 - Currently inside of GetTemp() 15 Dublin,IE
+43-33-04-17-05-2025 - Stored data 1
+43-33-04-17-05-2025 - Stored data 1
+43-33-04-17-05-2025 - 17.05.2025 4:22:03
+43-33-04-17-05-2025 - 17.05.2025 20:21:07
+43-33-04-17-05-2025 - Are the athletes capable of running at this moment: True
+45-33-04-17-05-2025 - Are athletes satisfied at this moment: True
+45-33-04-17-05-2025 - ---------- Athlete one ----------
+45-33-04-17-05-2025 - Weather suitability for athlete one with API data: True
+45-33-04-17-05-2025 - Athlete one temperature preference is True
+45-33-04-17-05-2025 -  
+45-33-04-17-05-2025 - Athlete one suitability: True
+45-33-04-17-05-2025 - Athlete one is storm suitable: True
+45-33-04-17-05-2025 - Athlete one is drizzle suitable: True
+45-33-04-17-05-2025 - Athlete one is rain suitable: True
+45-33-04-17-05-2025 - Athlete one is snow suitable: True
+45-33-04-17-05-2025 - Athlete one is atmosphere suitable: True
+45-33-04-17-05-2025 - Athlete one is clear sky suitable: True
+45-33-04-17-05-2025 - Athlete one is cloudy suitable: True
+45-33-04-17-05-2025 - Athlete one is extreme weather suitable: True
+45-33-04-17-05-2025 - ---------- Athlete two ----------
+45-33-04-17-05-2025 - Weather suitability for athlete two with API data: True
+45-33-04-17-05-2025 - Athlete two temperature preference is True
+45-33-04-17-05-2025 -  
+45-33-04-17-05-2025 - Athlete two suitability: True
+45-33-04-17-05-2025 - Athlete two is storm suitable: True
+45-33-04-17-05-2025 - Athlete two is drizzle suitable: True
+45-33-04-17-05-2025 - Athlete two is rain suitable: True
+45-33-04-17-05-2025 - Athlete two is snow suitable: True
+45-33-04-17-05-2025 - Athlete two is atmosphere suitable: True
+45-33-04-17-05-2025 - Athlete two is clear sky suitable: True
+45-33-04-17-05-2025 - Athlete two is cloudy suitable: True
+45-33-04-17-05-2025 - Athlete two is extreme weather suitable: True

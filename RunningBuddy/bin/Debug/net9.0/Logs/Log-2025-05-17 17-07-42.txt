@@ -1,0 +1,2 @@
+2025-05-17 17:07:42 - Log writer initialized
+2025-05-17 17:07:43 - One of the cities in AppState is null!

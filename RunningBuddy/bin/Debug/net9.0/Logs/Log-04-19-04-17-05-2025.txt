@@ -1,0 +1,71 @@
+04-19-04-17-05-2025 - Log writer initialized
+04-19-04-17-05-2025 - Instances created
+08-19-04-17-05-2025 - City found + Hradec Kralove
+08-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 7
+09-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 6
+09-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 5
+10-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 4
+10-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 3
+10-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 2
+11-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 1
+11-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 0
+16-19-04-17-05-2025 - City found + Dublin
+16-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 7
+17-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 6
+17-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 5
+17-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 4
+18-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 3
+18-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 2
+18-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 1
+19-19-04-17-05-2025 - Inside in EnterAthlete() .for loop run trough 0
+24-19-04-17-05-2025 - Currently inside of GetId() 804 Hradec Kralove
+24-19-04-17-05-2025 - Stored data 0
+24-19-04-17-05-2025 - Currently inside of GetId() 804 Hradec Kralove
+24-19-04-17-05-2025 - Cloudy weather case
+24-19-04-17-05-2025 - Stored data 0
+24-19-04-17-05-2025 - Currently inside of GetTemp() 15 Hradec Kralove
+24-19-04-17-05-2025 - Stored data 0
+24-19-04-17-05-2025 - Currently inside of GetTemp() 15 Hradec Kralove
+24-19-04-17-05-2025 - Stored data 0
+24-19-04-17-05-2025 - Stored data 0
+24-19-04-17-05-2025 - 17.05.2025 3:07:16
+24-19-04-17-05-2025 - 17.05.2025 18:39:05
+24-19-04-17-05-2025 - Currently inside of GetId() 804 Dublin
+24-19-04-17-05-2025 - Stored data 1
+24-19-04-17-05-2025 - Currently inside of GetId() 804 Dublin
+24-19-04-17-05-2025 - Cloudy weather case
+24-19-04-17-05-2025 - Stored data 1
+24-19-04-17-05-2025 - Currently inside of GetTemp() 11 Dublin
+24-19-04-17-05-2025 - Stored data 1
+24-19-04-17-05-2025 - Currently inside of GetTemp() 11 Dublin
+24-19-04-17-05-2025 - Stored data 1
+24-19-04-17-05-2025 - Stored data 1
+24-19-04-17-05-2025 - 17.05.2025 12:56:17
+24-19-04-17-05-2025 - 18.05.2025 3:12:15
+24-19-04-17-05-2025 - Are the athletes capable of running at this moment: True
+25-19-04-17-05-2025 - ---------- Athlete one ----------
+25-19-04-17-05-2025 - Weather suitability for athlete one with API data: True
+25-19-04-17-05-2025 - Athlete one temperature preference is True
+25-19-04-17-05-2025 -  
+25-19-04-17-05-2025 - Athlete one suitability: True
+25-19-04-17-05-2025 - Athlete one is storm suitable: True
+25-19-04-17-05-2025 - Athlete one is drizzle suitable: True
+25-19-04-17-05-2025 - Athlete one is rain suitable: True
+25-19-04-17-05-2025 - Athlete one is snow suitable: True
+25-19-04-17-05-2025 - Athlete one is atmosphere suitable: True
+25-19-04-17-05-2025 - Athlete one is clear sky suitable: True
+25-19-04-17-05-2025 - Athlete one is cloudy suitable: True
+25-19-04-17-05-2025 - Athlete one is extreme weather suitable: True
+25-19-04-17-05-2025 - ---------- Athlete two ----------
+25-19-04-17-05-2025 - Weather suitability for athlete two with API data: True
+25-19-04-17-05-2025 - Athlete two temperature preference is True
+25-19-04-17-05-2025 -  
+25-19-04-17-05-2025 - Athlete two suitability: True
+25-19-04-17-05-2025 - Athlete two is storm suitable: True
+25-19-04-17-05-2025 - Athlete two is drizzle suitable: True
+25-19-04-17-05-2025 - Athlete two is rain suitable: True
+25-19-04-17-05-2025 - Athlete two is snow suitable: True
+25-19-04-17-05-2025 - Athlete two is atmosphere suitable: True
+25-19-04-17-05-2025 - Athlete two is clear sky suitable: True
+25-19-04-17-05-2025 - Athlete two is cloudy suitable: True
+25-19-04-17-05-2025 - Athlete two is extreme weather suitable: True

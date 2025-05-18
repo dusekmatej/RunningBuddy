@@ -14,7 +14,7 @@ public abstract class UserPreference : IUserPreference
     protected UserPreference(ApiService apiService)
     {
         if (_apiService == null)
-            Debug.WriteLine("ApiService is null");
+            Logging.Log("_apiService is null!");
         
         _apiService = apiService;
     }
@@ -33,7 +33,7 @@ public abstract class UserPreference : IUserPreference
     protected int GetTemp(string city)
     {
         _data = _apiService.GetData(city);
-        Debug.WriteLine(_data.Main.Temp);
+        Logging.Log($"_data.Main.Temp");
         var returnValue = _data.Main.Temp;
         
         Logging.Log("Currently inside of GetTemp() " + (int)returnValue + " " + city);

@@ -1,0 +1,58 @@
+2025-05-18 02:21:01 - Log writer initialized
+2025-05-18 02:21:01 - Directory found!
+2025-05-18 02:21:01 - File exists!
+2025-05-18 02:21:01 - File exists!
+2025-05-18 02:21:01 - -------------------------------------- Loading users
+2025-05-18 02:21:01 - 
+2025-05-18 02:21:01 - 
+2025-05-18 02:21:16 - _apiService is null!
+2025-05-18 02:21:16 - Are the athletes capable of running at this moment: False
+2025-05-18 02:21:17 - -----------------------------------------------------
+2025-05-18 02:21:17 - ---------- Athlete one ----------
+2025-05-18 02:21:17 - Athlete ID: a1
+2025-05-18 02:21:17 - ------- Temperature -------
+2025-05-18 02:21:17 - Minimal temperature: 0
+2025-05-18 02:21:17 - Maximal temperature: 0
+2025-05-18 02:21:17 - Athlete one temperature preference is False
+2025-05-18 02:21:17 - ------- Weather -------
+2025-05-18 02:21:17 - Weather suitability for athlete one with API data: False
+2025-05-18 02:21:17 - ------- Separate athlete weather attributes -------
+2025-05-18 02:21:17 - Athlete one suitability: False
+2025-05-18 02:21:17 - Athlete one is storm suitable: False
+2025-05-18 02:21:17 - Athlete one is drizzle suitable: True
+2025-05-18 02:21:17 - Athlete one is rain suitable: False
+2025-05-18 02:21:17 - Athlete one is snow suitable: True
+2025-05-18 02:21:17 - Athlete one is atmosphere suitable: False
+2025-05-18 02:21:17 - Athlete one is clear sky suitable: False
+2025-05-18 02:21:17 - Athlete one is cloudy suitable: True
+2025-05-18 02:21:17 - Athlete one is extreme weather suitable: True
+2025-05-18 02:21:17 - 
+2025-05-18 02:21:17 - ---------- Athlete two ----------
+2025-05-18 02:21:17 - Athlete ID: a2
+2025-05-18 02:21:17 - ------- Temperature -------
+2025-05-18 02:21:17 - Minimal temperature: 0
+2025-05-18 02:21:17 - Maximal temperature: 0
+2025-05-18 02:21:17 - Athlete two temperature preference is False
+2025-05-18 02:21:17 - ------- Weather -------
+2025-05-18 02:21:17 - Weather suitability for athlete two with API data: False
+2025-05-18 02:21:17 - ------- Separate athlete weather attributes -------
+2025-05-18 02:21:17 - Athlete two suitability: False
+2025-05-18 02:21:17 - Athlete two is storm suitable: False
+2025-05-18 02:21:17 - Athlete two is drizzle suitable: False
+2025-05-18 02:21:17 - Athlete two is rain suitable: False
+2025-05-18 02:21:17 - Athlete two is snow suitable: False
+2025-05-18 02:21:17 - Athlete two is atmosphere suitable: False
+2025-05-18 02:21:17 - Athlete two is clear sky suitable: False
+2025-05-18 02:21:17 - Athlete two is cloudy suitable: False
+2025-05-18 02:21:17 - Athlete two is extreme weather suitable: False
+2025-05-18 02:21:17 - ---------- All AppState variables ----------
+2025-05-18 02:21:17 - Are both athletes satisfied with the temperature conditions: False
+2025-05-18 02:21:17 - Are both athletes satisfied with the weather conditions: False
+2025-05-18 02:21:17 - Are both athletes satisfied with the time conditions: False
+2025-05-18 02:21:17 - Are both athletes satisfied overall: False
+2025-05-18 02:21:17 - First city entered by athlete 0: 
+2025-05-18 02:21:17 - Last city entered by athlete 1: 
+2025-05-18 02:21:17 - Has athlete 0 been entered: True
+2025-05-18 02:21:17 - Has athlete 1 been entered: False
+2025-05-18 02:21:17 - Have both athletes been entered: True
+2025-05-18 02:21:17 - -----------------------------------------------------

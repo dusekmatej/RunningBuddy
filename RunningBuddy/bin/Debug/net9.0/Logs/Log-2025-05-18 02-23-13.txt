@@ -1,0 +1,9 @@
+2025-05-18 02:23:13 - Log writer initialized
+2025-05-18 02:23:13 - Directory found!
+2025-05-18 02:23:13 - File exists!
+2025-05-18 02:23:13 - File exists!
+2025-05-18 02:23:13 - -------------------------------------- Loading users
+2025-05-18 02:23:13 - 
+2025-05-18 02:23:13 - 
+2025-05-18 02:23:29 - City found + Hradec Kralove
+2025-05-18 02:23:42 - City found + Dublin,IE

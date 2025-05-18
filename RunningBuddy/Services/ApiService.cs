@@ -35,7 +35,7 @@ public class ApiService
             //  && DateTime.Now - _timeStamp < _Duration
             if (_storedData0 != null)
             {
-                Logging.Log("Stored data 0");
+                Logging.Log("Getting stored data 0");
                 return _storedData0;
             }
 
@@ -49,7 +49,7 @@ public class ApiService
             // && DateTime.Now - _timeStamp < _Duration
             if (_storedData1 != null)
             {
-                Logging.Log("Stored data 1");
+                Logging.Log("Getting stored data 1");
                 return _storedData1;
             }
 

@@ -1,0 +1,30 @@
+2025-05-17 17:20:50 - Log writer initialized
+2025-05-17 17:20:50 - True
+2025-05-17 17:20:50 - True
+2025-05-17 17:20:51 - Are athletes satisfied at this moment: False
+2025-05-17 17:20:51 - ---------- Athlete one ----------
+2025-05-17 17:20:51 - Weather suitability for athlete one with API data: True
+2025-05-17 17:20:51 - Athlete one temperature preference is True
+2025-05-17 17:20:51 -  
+2025-05-17 17:20:51 - Athlete one suitability: True
+2025-05-17 17:20:51 - Athlete one is storm suitable: True
+2025-05-17 17:20:51 - Athlete one is drizzle suitable: True
+2025-05-17 17:20:51 - Athlete one is rain suitable: True
+2025-05-17 17:20:51 - Athlete one is snow suitable: True
+2025-05-17 17:20:51 - Athlete one is atmosphere suitable: True
+2025-05-17 17:20:51 - Athlete one is clear sky suitable: True
+2025-05-17 17:20:51 - Athlete one is cloudy suitable: True
+2025-05-17 17:20:51 - Athlete one is extreme weather suitable: True
+2025-05-17 17:20:51 - ---------- Athlete two ----------
+2025-05-17 17:20:51 - Weather suitability for athlete two with API data: True
+2025-05-17 17:20:51 - Athlete two temperature preference is True
+2025-05-17 17:20:51 -  
+2025-05-17 17:20:51 - Athlete two suitability: True
+2025-05-17 17:20:51 - Athlete two is storm suitable: True
+2025-05-17 17:20:51 - Athlete two is drizzle suitable: True
+2025-05-17 17:20:51 - Athlete two is rain suitable: True
+2025-05-17 17:20:51 - Athlete two is snow suitable: True
+2025-05-17 17:20:51 - Athlete two is atmosphere suitable: True
+2025-05-17 17:20:51 - Athlete two is clear sky suitable: True
+2025-05-17 17:20:51 - Athlete two is cloudy suitable: True
+2025-05-17 17:20:51 - Athlete two is extreme weather suitable: True

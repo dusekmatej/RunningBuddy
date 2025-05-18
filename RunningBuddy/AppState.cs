@@ -12,6 +12,9 @@ public static class AppState
     public static string? FirstCity { get; set; }
     public static string? LastCity { get; set; }
 
+    public static bool Athlete0Entered { get; set; } = false;
+    public static bool Athlete1Entered { get; set; } = false;
+    
     public static bool AthletesEntered { get; set; } = false;
 
     public static void LoadAthletesToAppState(Athlete athlete0, Athlete athlete1)
