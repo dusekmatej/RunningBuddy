@@ -12,7 +12,7 @@
   "IsCloudySuitable": true,
   "IsAtmosphereSuitable": true,
   "IsExtremeSuitable": true,
-  "WeatherSuitability": true,
-  "TemperatureSuitability": true,
+  "WeatherSuitability": false,
+  "TemperatureSuitability": false,
   "TimeSuitability": false
 }

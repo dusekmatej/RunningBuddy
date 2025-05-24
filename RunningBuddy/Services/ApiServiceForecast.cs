@@ -32,7 +32,7 @@ public class ApiServiceForecast
         {
             if (_storedData0 != null)
             {
-                Logging.Log("Getting stored forecast data 0");
+                Logging.Log("Loading stored stored data 1");
                 return _storedData0;
             }
 
@@ -44,16 +44,22 @@ public class ApiServiceForecast
         {
             if (_storedData1 != null)
             {
-                Logging.Log("Getting stored forecast data 1");
+                Logging.Log("Loading stored stored data 2");
                 return _storedData1;
             }
 
             _storedData1 = GetFromApi(city);
             return _storedData1;
         }
+        
+        if (AppState.FirstCity == null || AppState.LastCity == null)
+        {
+            Logging.Log("One of the cities in AppState is null!");
+            return GetFromApi(city);
+        }
 
-        Logging.Log("One of the cities in AppState is null!");
-        return null;
+        Logging.Log("----- Ran into an issue that is not handled yet!");
+        return GetFromApi(city);
     }
 
     private ForecastList? GetFromApi(string city)

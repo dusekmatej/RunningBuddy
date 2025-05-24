@@ -1,5 +1,7 @@
-using System.Diagnostics;
+using RunningBuddy.ModelsForecast;
 using RunningBuddy.Preferences;
+using RunningBuddy.PreferencesForecast;
+using TimePreference = RunningBuddy.PreferencesForecast.TimePreference;
 
 namespace RunningBuddy.Services;
 
@@ -7,7 +9,6 @@ public class InputManager
 {
     private bool _validInput = false;
     public bool IsRunning = true;
-    private bool _showCalculations = false;
     
     private int _questionNumber = 0;
     
@@ -122,28 +123,6 @@ public class InputManager
         EnterHighTemp(athlete);
     }
     
-    private void ShowCalculations()
-    {
-        if (AppState.satisfiedBothAthletes)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine("Both athletes are satisfied with the weather conditions.");
-            Console.WriteLine("You can go running with your buddy!");
-            Console.WriteLine("------------------------------------");
-            Console.ResetColor();
-        }
-        else
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine("Conditions currently haven't been met.");
-            Console.WriteLine("Unfortunately you can't go running with your buddy. :(");
-            Console.WriteLine("------------------------------------");
-            Console.ResetColor();
-        }
-    }
-    
     private int ShowMenu(string[] options, string title)
     {
         int selectedItem = 0;
@@ -167,8 +146,7 @@ public class InputManager
                 Console.ResetColor();
             }
             
-            if (_showCalculations)
-                ShowCalculations();
+            
 
             ConsoleKey inputKey = Console.ReadKey(true).Key;
 
@@ -268,8 +246,6 @@ public class InputManager
             AppState.LastCity = athlete.Location;
     }
     
-    // TODO: Remake temp inputing to be more user friendly my idea - changing with up/down arrows for increase/decrease
-    
     private bool EnterLowTemp(Athlete athlete)
     {
         Console.WriteLine("Input the lowest temperature you are comfortable with:");
@@ -304,35 +280,62 @@ public class InputManager
 
     private void Calculate(Athlete athlete0, Athlete athlete1)
     {
-        ApiService? apiService = new ApiService();
-
-        var checkPref = new CheckPreferences();
-        var weatherPref = new WeatherPreference(apiService);
-        var tempPref = new TemperaturePreference(apiService);
+        var apiService = new ApiServiceForecast();
+        var forecastEntries0 = apiService.GetData(AppState.FirstCity).List;
+        var forecastEntries1 = apiService.GetData(AppState.LastCity).List;
+        
+        EvaluateEntries(athlete0, athlete1, forecastEntries0, forecastEntries1, apiService);
+    }
+    
+    private void EvaluateEntries(Athlete athlete0, Athlete athlete1, List<ForecastEntry> forecastEntries0, List<ForecastEntry> forecastEntries1, ApiServiceForecast apiService)
+    {
+        var tempPref = new TempPreferenceF(apiService);
+        var weatherPref = new WeatherPreferenceF(apiService);
         var timePref = new TimePreference(apiService);
 
-        
-        
-        if (athlete0.Location != null)
+        for (int i = 0; i < forecastEntries0.Count && i < forecastEntries1.Count; i++)
         {
-            athlete0.WeatherSuitability = weatherPref.IsSatisfied(athlete0, athlete0.Location);
-            athlete0.TemperatureSuitability = tempPref.IsSatisfied(athlete0, athlete0.Location);
-            athlete0.TimeSuitability = timePref.IsSatisfied(athlete0, athlete0.Location);
+            athlete0.TemperatureSuitability = tempPref.IsSatisfied(athlete0, athlete0.Location, forecastEntries0[i]);
+            athlete1.TemperatureSuitability = tempPref.IsSatisfied(athlete1, athlete1.Location, forecastEntries1[i]);
+
+            if (athlete0.TemperatureSuitability && athlete1.TemperatureSuitability)
+                AppState.satisfiedTemperature = true;
+            
+            athlete0.WeatherSuitability = weatherPref.IsSatisfied(athlete0, athlete0.Location, forecastEntries0[i]);
+            athlete1.WeatherSuitability = weatherPref.IsSatisfied(athlete1, athlete1.Location, forecastEntries1[i]);
+            
+            if (athlete0.WeatherSuitability && athlete1.WeatherSuitability)
+                AppState.satisfiedWeather = true;
+            
+            athlete0.TimeSuitability = timePref.IsSatisfied(athlete0, athlete0.Location, forecastEntries0[i]);
+            athlete1.TimeSuitability = timePref.IsSatisfied(athlete1, athlete1.Location, forecastEntries1[i]);
+            
+            if (athlete0.TimeSuitability && athlete1.TimeSuitability)
+                AppState.satisfiedTime = true;
+
+            if (AppState.satisfiedTemperature && AppState.satisfiedTime && AppState.satisfiedWeather)
+            {
+                Console.WriteLine($"You can run together at {forecastEntries0[i].DtTxt}");
+            }
+            else
+            {
+                Console.WriteLine("You cannot run together at " + forecastEntries0[i].DtTxt);
+            }
+            
+            AppState.satisfiedTemperature = false;
+            AppState.satisfiedWeather = false;
+            AppState.satisfiedTime = false;
+
+            athlete0.TimeSuitability = false;
+            athlete1.TimeSuitability = false;
+            athlete0.WeatherSuitability = false;
+            athlete1.WeatherSuitability = false;
+            athlete0.TemperatureSuitability = false;
+            athlete1.TemperatureSuitability = false;
         }
 
-        if (athlete1.Location != null)
-        {
-            athlete1.WeatherSuitability = weatherPref.IsSatisfied(athlete1, athlete1.Location);
-            athlete1.TemperatureSuitability = tempPref.IsSatisfied(athlete1, athlete1.Location);        
-            athlete1.TimeSuitability = timePref.IsSatisfied(athlete1, athlete1.Location);
-        }
         
-        AppState.satisfiedBothAthletes = checkPref.ArePreferencesSatisfied(athlete0, athlete1);
         
-        Logging.Log("Are the athletes capable of running at this moment: " + AppState.satisfiedBothAthletes);
-        
-        _showCalculations = true;
+        Console.ReadKey();
     }
-
-    
 }

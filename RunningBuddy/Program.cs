@@ -9,7 +9,6 @@ public static class Program
     {
         Logging.Entry();
         Logging.Log("Log writer initialized");
-        Debug.WriteLine("Log writer intialized");
         
         // Create instances of classes
         SaveManager saveManager = new SaveManager();
@@ -18,8 +17,11 @@ public static class Program
         // Create athletes
         Athlete athlete0 = new Athlete("a1");
         Athlete athlete1 = new Athlete("a2");
+
+        athlete0 = saveManager.Load("Users/user0.json");
+        athlete1 = saveManager.Load("Users/user1.json");
+        AppState.LoadAthletesToAppState(athlete0, athlete1);
         
-        saveManager.LoadAthletes(athlete0, athlete1);
         
         while (inputManager.IsRunning)
         {

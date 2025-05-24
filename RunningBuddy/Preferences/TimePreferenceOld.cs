@@ -2,7 +2,7 @@
 
 namespace RunningBuddy.Preferences;
 
-public class TimePreference(ApiService apiService) : UserPreference(apiService)
+public class TimePreferenceOld(ApiService apiService) : UserPreference(apiService)
 {
     public override bool IsSatisfied(Athlete athlete, string city)
     {

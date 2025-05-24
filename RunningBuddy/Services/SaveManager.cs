@@ -1,6 +1,5 @@
 ﻿using System.Text.Json;
-using System.IO;
-using RunningBuddy.Services;
+
 
 namespace RunningBuddy.Services;
 
@@ -36,17 +35,17 @@ public class SaveManager
         return true;
     }
     
-    public void LoadAthletes(Athlete athlete0, Athlete athlete1)
-    {
-        if (DoesDirectoryExist(Folder) && DoesFileExist("Users/user0.json") && DoesFileExist("Users/user1.json"))
-        {
-            Logging.Log("-------------------------------------- Loading users");
-            athlete0 = Load("Users/user0.json");
-            athlete1 = Load("Users/user1.json");
-            AppState.LoadAthletesToAppState(athlete0, athlete1);
-            AppState.AthletesEntered = true;
-        }
-    }
+    // public Athlete LoadAthletes(Athlete athlete0, Athlete athlete1)
+    // {
+    //     if (DoesDirectoryExist(Folder) && DoesFileExist("Users/user0.json") && DoesFileExist("Users/user1.json"))
+    //     {
+    //         Logging.Log("-------------------------------------- Loading users");
+    //         athlete0 = Load("Users/user0.json");
+    //         athlete1 = Load("Users/user1.json");
+    //         AppState.LoadAthletesToAppState(athlete0, athlete1);
+    //         AppState.AthletesEntered = true;
+    //     }
+    // }
 
     public void SaveAthletes(Athlete athlete0, Athlete athlete1)
     {

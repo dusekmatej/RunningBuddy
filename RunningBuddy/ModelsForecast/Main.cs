@@ -1,7 +1,10 @@
-﻿namespace RunningBuddy.ModelsForecast;
+﻿using System.Text.Json.Serialization;
+
+namespace RunningBuddy.ModelsForecast;
 
 public class Main
 {
+    [JsonPropertyName("temp")]
     public double Temp { get; set; }
     public double Feels_Like { get; set; }
     public double Temp_Min { get; set; }

@@ -6,14 +6,14 @@ namespace RunningBuddy.Preferences;
 
 public abstract class UserPreference : IUserPreference
 {
-    private static ApiService? _apiService;
+    private readonly ApiService _apiService;
     private ApiList? _data;
     
     public abstract bool IsSatisfied(Athlete athlete, string city);
 
     protected UserPreference(ApiService apiService)
     {
-        if (_apiService == null)
+        if (apiService == null)
             Logging.Log("_apiService is null!");
         
         _apiService = apiService;
@@ -21,9 +21,12 @@ public abstract class UserPreference : IUserPreference
 
     protected int GetId(string city)
     {
+        if (_apiService == null)
+            Console.WriteLine("_apiService is null!");
+        
         _data = _apiService.GetData(city);
         var weather = _data.Weather[0];
-        var returnValue = weather.Id;
+        var returnValue = _data.Weather[0].Id;
         
         Logging.Log("Currently inside of GetId() " + returnValue + " " + city);
         
@@ -33,7 +36,6 @@ public abstract class UserPreference : IUserPreference
     protected int GetTemp(string city)
     {
         _data = _apiService.GetData(city);
-        Logging.Log($"_data.Main.Temp");
         var returnValue = _data.Main.Temp;
         
         Logging.Log("Currently inside of GetTemp() " + (int)returnValue + " " + city);
