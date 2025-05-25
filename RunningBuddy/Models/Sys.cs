@@ -4,15 +4,8 @@ namespace RunningBuddy.Models;
 
 public class Sys
 {
-    [JsonPropertyName("type")]
-    public int? Type { get; set; } // Nullable as not always included
-
-    [JsonPropertyName("id")]
-    public int? Id { get; set; }
-
-    [JsonPropertyName("country")]
-    public string Country { get; set; }
-
+    public string Pod { get; set; }
+    
     [JsonPropertyName("sunrise")]
     public long Sunrise { get; set; }
 

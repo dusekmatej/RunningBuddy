@@ -1,7 +1,4 @@
-﻿using System.Runtime.Serialization;
-using RunningBuddy.Preferences;
-
-namespace RunningBuddy;
+﻿namespace RunningBuddy;
 
 public class Athlete
 {
@@ -28,6 +25,7 @@ public class Athlete
     
     public bool TimeSuitability { get; set; }
 
+    // Constructor for object athlete
     public Athlete(string id)
     {
         Id = id;

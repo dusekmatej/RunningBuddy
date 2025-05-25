@@ -1,9 +1,0 @@
-2025-05-18 01:29:06 - Log writer initialized
-2025-05-18 01:29:06 - Directory found!
-2025-05-18 01:29:06 - File exists!
-2025-05-18 01:29:06 - File exists!
-2025-05-18 01:29:06 - -------------------------------------- Loading users
-2025-05-18 01:29:06 - 
-2025-05-18 01:29:06 - 
-2025-05-18 01:29:07 - _apiService is null!
-2025-05-18 01:29:07 - Are the athletes capable of running at this moment: False

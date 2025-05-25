@@ -2,6 +2,8 @@
 
 public static class AthletesDebugger
 {
+    
+    // Writing debug logs into logs.txt file for easier debugging what works and what doesn't
     public static void DebugLogs(Athlete athlete0, Athlete athlete1)
     {
         Logging.Log("-----------------------------------------------------");

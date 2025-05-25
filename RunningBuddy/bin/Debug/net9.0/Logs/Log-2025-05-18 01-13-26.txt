@@ -1,6 +1,0 @@
-2025-05-18 01:13:26 - Log writer initialized
-2025-05-18 01:13:26 - Directory found!
-2025-05-18 01:13:26 - File exists!
-2025-05-18 01:13:26 - File exists!
-2025-05-18 01:13:26 - False
-2025-05-18 01:13:26 - False

@@ -17,9 +17,16 @@ public static class AppState
     
     public static bool AthletesEntered { get; set; } = false;
 
-    public static void LoadAthletesToAppState(Athlete athlete0, Athlete athlete1)
+    
+    // Loading some of athlete's preference to the AppState
+    public static void LoadAthlete0AppState(Athlete athlete0)
     {
         FirstCity = athlete0.Location;
+    }
+
+    // Loading some of athlete's preference to the AppState
+    public static void LoadAthlete1AppState(Athlete athlete1)
+    {
         LastCity = athlete1.Location;
     }
 }

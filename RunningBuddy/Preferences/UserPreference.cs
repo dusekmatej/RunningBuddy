@@ -1,59 +1,31 @@
-using System.Diagnostics;
-using RunningBuddy.Services;
 using RunningBuddy.Models;
+using RunningBuddy.Services;
+
 
 namespace RunningBuddy.Preferences;
 
-public abstract class UserPreference : IUserPreference
+public abstract class UserPreference(ApiServiceForecast apiService) : IUserPreference
 {
-    private readonly ApiService _apiService;
-    private ApiList? _data;
-    
-    public abstract bool IsSatisfied(Athlete athlete, string city);
+    private readonly ApiServiceForecast _apiService = apiService ?? throw new ArgumentNullException(nameof(apiService), "Api Service is null!");
+    private ForecastList? _data;
+    public abstract bool IsSatisfied(Athlete athlete, string city, ForecastEntry? currentEntry);
 
-    protected UserPreference(ApiService apiService)
-    {
-        if (apiService == null)
-            Logging.Log("_apiService is null!");
-        
-        _apiService = apiService;
-    }
-
-    protected int GetId(string city)
-    {
-        if (_apiService == null)
-            Console.WriteLine("_apiService is null!");
-        
-        _data = _apiService.GetData(city);
-        var weather = _data.Weather[0];
-        var returnValue = _data.Weather[0].Id;
-        
-        Logging.Log("Currently inside of GetId() " + returnValue + " " + city);
-        
-        return returnValue;
-    }
-
-    protected int GetTemp(string city)
-    {
-        _data = _apiService.GetData(city);
-        var returnValue = _data.Main.Temp;
-        
-        Logging.Log("Currently inside of GetTemp() " + (int)returnValue + " " + city);
-        
-        return (int)returnValue;
-    }
-
+    // Gets sunrise time for the specified city
     protected long GetSunrise(string city)
     {
         _data = _apiService.GetData(city);
-        var returnValue = _data.Sys.Sunrise;
-        return returnValue;
+
+        if (_data != null)
+            return _data.City.Sunrise;
+
+        throw new ArgumentNullException(nameof(_data), "Data is null!");
     }
 
+    // Gets sunset time for the specified city
     protected long GetSunset(string city)
     {
         _data = _apiService.GetData(city);
-        var returnValue = _data.Sys.Sunset;
-        return returnValue;
+        
+        return _data.City.Sunset;
     }
 }

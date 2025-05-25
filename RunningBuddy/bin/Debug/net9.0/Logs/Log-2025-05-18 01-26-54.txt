@@ -1,9 +1,0 @@
-2025-05-18 01:26:54 - Log writer initialized
-2025-05-18 01:26:54 - Directory found!
-2025-05-18 01:26:54 - File exists!
-2025-05-18 01:26:54 - File exists!
-2025-05-18 01:26:54 - -------------------------------------- Loading users
-2025-05-18 01:26:54 - Hradec Kralove
-2025-05-18 01:26:54 - Dublin,IE
-2025-05-18 01:26:57 - _apiService is null!
-2025-05-18 01:26:57 - Are the athletes capable of running at this moment: False

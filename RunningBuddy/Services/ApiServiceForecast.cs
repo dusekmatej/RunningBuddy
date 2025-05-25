@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Net.Http.Json;
-using RunningBuddy.ModelsForecast;
+﻿using RunningBuddy.Models;
 
 namespace RunningBuddy.Services;
 
@@ -15,24 +13,24 @@ public class ApiServiceForecast
     private ForecastList? _storedData1;
     private ForecastList? _dataStorage;
 
-    private DateTime _timeStamp;
-    private readonly TimeSpan _Duration = TimeSpan.FromMinutes(10);
-
     private string _rawResponse;
 
+    
+    // Constructor for HttpClient creation
     public ApiServiceForecast()
     {
         _httpClient = new HttpClient();
         _httpClient.BaseAddress = new Uri(URL);
     }
 
+    // Getting data from stored data if stored data is aviable, otherwise get from API
     public ForecastList? GetData(string city)
     {
         if (AppState.FirstCity == city)
         {
             if (_storedData0 != null)
             {
-                Logging.Log("Loading stored stored data 1");
+                Logging.Log("Loading stored stored data 1 " + city);
                 return _storedData0;
             }
 
@@ -44,7 +42,7 @@ public class ApiServiceForecast
         {
             if (_storedData1 != null)
             {
-                Logging.Log("Loading stored stored data 2");
+                Logging.Log("Loading stored stored data 2 " + city);
                 return _storedData1;
             }
 
@@ -62,6 +60,7 @@ public class ApiServiceForecast
         return GetFromApi(city);
     }
 
+    // Getting data from the API
     private ForecastList? GetFromApi(string city)
     {
         string requestUrl = $"{URL}?q={city}&units=metric&appid={KEY}";
@@ -73,6 +72,8 @@ public class ApiServiceForecast
         return _dataStorage;
     }
 
+    
+    // Check if the city exists
     public bool DoesCityExist(string city)
     {
         string requestUrl = $"{URL}?q={city}&units=metric&appid={KEY}";

@@ -1,17 +1,23 @@
-﻿using System.Diagnostics;
-using RunningBuddy.Services;
 using RunningBuddy.Models;
+using RunningBuddy.Services;
 
 namespace RunningBuddy.Preferences;
 
-public class WeatherPreference(ApiService apiService) : UserPreference(apiService)
+public class WeatherPreference(ApiServiceForecast apiService) : UserPreference(apiService)
 {
-    public override bool IsSatisfied(Athlete athlete, string city)
+    
+    // This preference checks if the athlete's weather suitability matches the current weather conditions.
+    public override bool IsSatisfied(Athlete athlete, string city, ForecastEntry? currentEntry)
     {
-        int weatherId = GetId(city);
-        Debug.WriteLine($"GetID = {GetId(city)} -------------------------- {city}");
+        if (currentEntry?.Weather == null || currentEntry.Weather.Count == 0)
+        {
+            Logging.Log("Weather currentEntry is null or empty");
+        }
         
-        switch (weatherId)
+        int currentWeatherId = currentEntry.Weather[0].Id;
+        Logging.Log($"ID for this entry {currentEntry.DtTxt} is {currentWeatherId}");
+        
+        switch (currentWeatherId)
         {
             // Thunderstorm: 200–299
             case >= 200 and < 300 when athlete.IsStormSuitable:
@@ -48,5 +54,6 @@ public class WeatherPreference(ApiService apiService) : UserPreference(apiServic
             
             default: return false;
         }
+        
     }
 }
