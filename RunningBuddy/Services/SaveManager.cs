@@ -1,12 +1,9 @@
 ﻿using System.Text.Json;
-
-
 namespace RunningBuddy.Services;
 
 public class SaveManager
 {
-
-    private string _folder;
+    private readonly string _folder;
 
     // Constructor
     public SaveManager(string folderPath)
@@ -41,16 +38,8 @@ public class SaveManager
         return true;
     }
     
-    // Saves both athletes into JSON
-    public void SaveAthletes(Athlete athlete0, Athlete athlete1)
-    {
-        Save(athlete0, "Users/user0.json");
-        Save(athlete1, "Users/user1.json");
-    }
-
-    
     // Saves one athlete 
-    private void Save(Athlete athlete, string filePath)
+    public void Save(Athlete athlete, string filePath)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(athlete, options);
@@ -58,26 +47,15 @@ public class SaveManager
     }
 
     // Loads an athlete from a JSON file 
-    public Athlete Load(string filePath)
+    public Athlete Load(string user)
     {
-        AppState.Athlete0Entered = true;
-        AppState.Athlete1Entered = true;
+        string athleteJson = File.ReadAllText(_folder + user);
+        Athlete loadedAthlete = JsonSerializer.Deserialize<Athlete>(athleteJson)!;
         
-        if (!File.Exists(filePath))
-        {
-            Logging.Log("File does not exist!");
-            throw new FileNotFoundException("File not found");
-        }
-
-        string userJson = File.ReadAllText(filePath);
-        Athlete deserialized = JsonSerializer.Deserialize<Athlete>(userJson)!;
-
-        Logging.Log($"{deserialized.Location}");
-        return deserialized;
+        return loadedAthlete;
     }
 
     // Delete only one athlete
-
     public void DeleteAthlete(string athletePath)
     {
         if (DoesFileExist(athletePath))

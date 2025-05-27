@@ -15,24 +15,24 @@ public static class Program
         Logging.Log("Log writer initialized");
         
         // Create instances of classes
-        SaveManager saveManager = new SaveManager("Users");
+        SaveManager saveManager = new SaveManager("Users/");
 
         // Create athletes
         Athlete athlete0 = new Athlete("a1");
         Athlete athlete1 = new Athlete("a2");
 
-        if (saveManager.DoesDirectoryExist("Users"))
+        if (File.Exists("Users/user0.json"))
         {
-            if (saveManager.DoesFileExist("Users/user0.json"))
-                athlete0 = saveManager.Load("Users/user0.json");
-            
-            if (saveManager.DoesFileExist("Users/user1.json")) 
-                athlete1 = saveManager.Load("Users/user1.json");
-            
+            athlete0 = saveManager.Load("user0.json");
+            AppState.LoadAthlete0AppState(athlete0);
+            AppState.Athlete0Entered = true;
         }
-        else
+        
+        if (File.Exists("Users/user1.json"))
         {
-            Logging.Log("Users directory does not exist, creating it");
+            athlete1 = saveManager.Load("user1.json");
+            AppState.LoadAthlete1AppState(athlete1);
+            AppState.Athlete1Entered = true;
         }
         
         
@@ -42,8 +42,12 @@ public static class Program
             screen.MainScreen(athlete0, athlete1);
         }
         
-        saveManager.SaveAthletes(athlete0, athlete1);
-        
+        if (AppState.Athlete0Entered)
+            saveManager.Save(athlete0, "Users/user0.json");
+
+        if (AppState.Athlete1Entered)
+            saveManager.Save(athlete1, "Users/user1.json");
+
         AthletesDebugger.DebugLogs(athlete0, athlete1);
     }
 }

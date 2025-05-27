@@ -33,10 +33,10 @@ public class Screens
                 break;
             case 1:
                 Console.Clear();
-                var forecastEntries0 = apiService.GetData(AppState.FirstCity).List;
-                var forecastEntries1 = apiService.GetData(AppState.LastCity).List;
                 if (AppState.Athlete0Entered && AppState.Athlete1Entered)
                 {
+                    var forecastEntries0 = apiService.GetData(AppState.FirstCity).List;
+                    var forecastEntries1 = apiService.GetData(AppState.LastCity).List;
                     calc = new Calculate(athlete0, athlete1, forecastEntries0, forecastEntries1, apiService);
                 }
                 else
