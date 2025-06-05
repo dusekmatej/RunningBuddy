@@ -35,7 +35,9 @@ public class Calculate
 
             if (AppState.satisfiedTemperature && AppState.satisfiedTime && AppState.satisfiedWeather)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"You can run together at {forecastEntries0[i].DtTxt}");
+                Console.ResetColor();
             }
             else
             {
